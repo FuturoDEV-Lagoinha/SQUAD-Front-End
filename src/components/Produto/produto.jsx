@@ -1,5 +1,6 @@
 import React, {  useState, useEffect } from "react";
 import "./produto.css";
+import ProdutosList from "./produtosList";
 
 const Produto = () => {
 
@@ -9,7 +10,11 @@ const Produto = () => {
         animal: "",
         quantidade: "",
         categoria: "",
-    })
+    });
+
+    const [produtos, setProdutos] = useState([]);
+
+
 
     const adicionaProduto = () => {
         fetch(`http://localhost:8080/produto`, {
@@ -33,28 +38,13 @@ const Produto = () => {
         })
         .then((response) => {return response.json()})
         .then((dadosDoEstoque) => {setEstoque(dadosDoEstoque)});
-
     }
 
     useEffect(() => {
         listaEstoques();
     }, []); 
 
-    const listaProdutos = () => {
-        fetch(`http://localhost:8080/produto`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
-        .then((response) => {return response.json()})
-        .then((dadosDoProduto) => {console.log(dadosDoProduto)});
-        
-    }
-    
-    useEffect(() => {
-        listaProdutos();
-    }, []);
+
 
     console.log(estoque);
 
@@ -95,6 +85,7 @@ const Produto = () => {
             value={produto.produto} 
             onChange={(evento) => setProduto({...produto, produto: evento.target.value})}
             >
+                <option>...</option>
                 <option value={"ração"}>Ração</option>
                 <option value={"antipulgas"}>Antipulgas</option>
                 <option value={"antiparasitária"}>Antiparasitária</option>
@@ -113,6 +104,7 @@ const Produto = () => {
             value={produto.animal} 
             onChange={(evento) => setProduto({...produto, animal: evento.target.value})}
             > 
+                <option>...</option>
                 <option value={"cachorro"}>Cachorro</option>
                 <option value={"gato"}>Gato</option>
             </select>
@@ -122,6 +114,7 @@ const Produto = () => {
             value={produto.categoria}
             onChange={(evento) => setProduto({...produto, categoria: evento.target.value})}
             > 
+                <option>...</option>
                 <option value={"filhote"}>Filhote</option>
                 <option value={"adulto"}>Adulto</option>
             </select>
@@ -129,12 +122,9 @@ const Produto = () => {
             <button onClick={adicionaProduto}>Confirmar Cadastro de Produto</button>
 
             <div className="lista-de-produtos">
-                <ul>
-                    <li>
-                    {listaProdutos}
-                    </li>
-                </ul>
+                <ProdutosList produtos={produtos}/>
             </div>
+
 
         </div>
     )
