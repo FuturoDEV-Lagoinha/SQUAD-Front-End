@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
 
 const Login = () => {
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+
+    const emailDoUsuario = (event) => {
+        setEmail(event.target.value);
+    };
+
+    const senhaDoUsuario = (event) => {
+        setSenha(event.target.value);
+    }
+
     return (
 
         <div className="login">
