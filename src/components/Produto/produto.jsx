@@ -49,22 +49,6 @@ const Produto = () => {
     console.log(estoque);
 
 
-    const atualizaProduto = (idDoProduto, dadosDoProduto) => {
-        fetch(`hppt://localhost:8080/produto/${idDoProduto}`,{
-            method: "PUT",
-            headers: {
-                'Content-Type': "application/json",
-            },
-            body: JSON.stringify(dadosDoProduto),
-        });
-    }
-
-
-    const deletaProduto = (idDoProduto) => {
-        fetch(`http://localhost:8080/produto/${idDoProduto}`,{
-            method: "DELETE",
-        });
-    }
 
     return(
         <div className="cadastro-produto">
