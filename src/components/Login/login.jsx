@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import login from '../../assets/login.jpg';
 import logo from '../../assets/logo.png';
+import { FaEnvelope, FaLock} from "react-icons/fa";
+import './style.css';
 
 
 const Login = () => {
@@ -21,14 +23,19 @@ const Login = () => {
             <div>
                 <img src={login} alt="foto de cães e gatos" />
             </div>
-            <div className="formulario-login">
+            <div className="formularioLogin">
                 <form>
                     <img src={logo} alt="logo ilustração de patinhas de pets" />
-                    <h2>DEVIN - ADOÇÃO</h2>
+                    <h3>DEVIN - ADOÇÃO</h3>
                     <span>Seja bem vindo</span>
-
-                    <input type="text" placeholder="E-mail" />
-                    <input type="text" placeholder="Senha"/>
+                    
+                    <div className="inputEmailContainer">
+                        <input type="text" value={""} placeholder="exemplo@email.com" /><FaEnvelope className="emailIcon"/> 
+                    </div>
+                    <div className="inputSenhaContainer">
+                        <input type="text" value={""} placeholder="Senha"/><FaLock className="senhaIcon"/>
+                    </div>
+                    
                     <button>Entrar</button>
                     <a href="#">Não é cadastrado?</a>
                 </form>

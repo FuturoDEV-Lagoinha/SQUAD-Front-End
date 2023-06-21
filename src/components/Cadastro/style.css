@@ -48,8 +48,9 @@ input {
   border-radius: 12px;
   border: none;
   margin-bottom: 10px;
-  padding: 10px;
+  padding-left: 30px;
 }
+
 
 button {
   background-color: rgb(89, 100, 176);
@@ -60,20 +61,16 @@ button {
   color: rgb(242, 240, 238);
 }
 
-.formularioCadastro img {
-  width: 150px;
-  height: 150px;
-}
-
- .inputEmailContainer {
+.inputEmailContainer {
   position: relative;
   display: inline-block;
 }
 
 .emailIcon {
   position: absolute;
-  right: 10px;
-  top: 7px;
+  left: 10px;
+  top: 6px;
+  color: rgb(148, 145, 145);
 } 
 
 .inputSenhaContainer {
@@ -83,8 +80,9 @@ button {
 
 .senhaIcon {
   position: absolute;
-  right: 10px;
-  top: 7px;
+  left: 10px;
+  top: 6px;
+  color: rgb(148, 145, 145);
 }
 
 .inputNomeContainer {
@@ -94,6 +92,7 @@ button {
 
 .nomeIcon {
   position: absolute;
-  right: 10px;
-  top: 7px;
+  left: 10px;
+  top: 6px;
+  color: rgb(148, 145, 145);
 }
