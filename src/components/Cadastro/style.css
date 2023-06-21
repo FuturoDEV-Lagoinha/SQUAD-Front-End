@@ -1,0 +1,22 @@
+.cadastro {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.cadastro img {
+    width: 250px;
+    height: 250px;
+}
+
+ .inputEmailContainer {
+  position: relative;
+  display: inline-block;
+
+}
+
+.emailIcon {
+  position: absolute;
+  right: 0;
+  top: 0;
+} 

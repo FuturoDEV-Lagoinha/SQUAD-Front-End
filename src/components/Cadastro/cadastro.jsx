@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-//import logo from './assets/logo.png'
+import logo from '../../assets/logo.png';
+import cadastro from '../../assets/cadastro.jpg'
 import {FaEnvelope } from 'react-icons/fa';
+
 
 const Cadastro = () => {
     const [nome, setNome] = useState();
@@ -10,14 +12,18 @@ const Cadastro = () => {
     return(
         <div className="cadastro">
             <div>
-                <img src="" alt="foto de um cão filhote" />
+                <img src={cadastro} alt="foto de um cão filhote" />
             </div>
             <div className="formulario-cadastro">
                 <form>
-                    <img src="" alt="ilustração de patinhas de pets" />
-                    <p>Cadastro</p>
+                    <img src={logo} alt="ilustração de patinhas de pets" />
+                    <h3>DEVIN - ADOÇÃO</h3>
+                    <span>Cadastro</span>
                     <input type="text" value={""} placeholder="Nome" />
-                    {/* <input type="text" value={""} placeholder="exemplo@email.com" <FaEnvelope/>/> */}
+                    <div className="inputEmailContainer">
+                        <input type="text" value={""} placeholder="exemplo@email.com" /><FaEnvelope className="emailIcon"/> 
+                    </div>
+                    
                     <input type="text" value={""} placeholder="Senha"/>
                     <button>Cadastrar</button>
                 </form>

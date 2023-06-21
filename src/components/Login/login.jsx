@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import login from '../../assets/login.jpg';
+import logo from '../../assets/logo.png';
 
 
 const Login = () => {
@@ -17,11 +19,12 @@ const Login = () => {
 
         <div className="login">
             <div>
-                <img src="" alt="foto de cães e gatos" />
+                <img src={login} alt="foto de cães e gatos" />
             </div>
             <div className="formulario-login">
                 <form>
-                    <img src="" alt="logo ilustração de patinhas de pets" />
+                    <img src={logo} alt="logo ilustração de patinhas de pets" />
+                    <h2>DEVIN - ADOÇÃO</h2>
                     <span>Seja bem vindo</span>
 
                     <input type="text" placeholder="E-mail" />
