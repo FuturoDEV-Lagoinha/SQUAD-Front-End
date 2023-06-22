@@ -5,17 +5,23 @@
 }
 
 .cadastro {
-  width: 100vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+.imgCadastro {
+  width: 50%;
   height: 100vh;
   display: flex;
-  /* justify-content: center; */
-  flex-direction: row;
-  /* align-items: center; */
+  justify-content: center;
+  align-items: center;
 }
 
 .imgCadastro img {
-  width: 90%;
-  height: 90%;
+  max-width: 90%;
+  height: 55%;
 }
 
 .formularioCadastro form {
@@ -23,6 +29,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 90%;
+  height: 55%;
 }
 
 .formularioCadastro form img {
@@ -43,22 +51,28 @@ span {
 }
 
 input {
-  width: 200px;
+  width: 250px;
   height: 30px;
   border-radius: 12px;
   border: none;
   margin-bottom: 10px;
   padding-left: 30px;
+  outline: none;
 }
 
 
 button {
   background-color: rgb(89, 100, 176);
-  width: 200px;
+  width: 250px;
   height: 30px;
   border-radius: 12px;
   border: none;
   color: rgb(242, 240, 238);
+  transition: background-color 0.3s;
+}
+button:hover {
+  background-color: rgb(113, 128, 221);
+
 }
 
 .inputEmailContainer {

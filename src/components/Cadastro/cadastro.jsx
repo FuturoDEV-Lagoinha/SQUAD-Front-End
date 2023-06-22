@@ -5,9 +5,26 @@ import {FaEnvelope, FaLock, FaUserCircle} from 'react-icons/fa';
 import './style.css';
 
 const Cadastro = () => {
+
+    // const [usuario, setUsuario] = useState({
+    //     nome:"",
+    //     email:"",
+    //     senha:""
+    // });
     const [nome, setNome] = useState();
     const [email, setEmail] = useState();
     const [senha, setSenha] = useState();
+
+    // const cadastrarUsuario = () => {
+    //     fetch(`http://localhost:8080/usuario`, {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify(usuario),
+    //     });
+    //     console.log(usuario);
+    // }
     
     return(
         <div className="cadastro">
@@ -21,16 +38,28 @@ const Cadastro = () => {
                     <span>Cadastro</span>
                     
                     <div className="inputNomeContainer">
-                        <input type="text" value={""} placeholder="Nome" /><FaUserCircle className="nomeIcon"/>
+                        <input 
+                        type="text" 
+                        value={nome} 
+                        placeholder="Nome" 
+                        onChange={(evento) => setNome(evento.target.value) } /><FaUserCircle className="nomeIcon"/>
                     </div>
                     <div className="inputEmailContainer">
-                        <input type="text" value={""} placeholder="exemplo@email.com" /><FaEnvelope className="emailIcon"/> 
+                        <input 
+                        type="text" 
+                        value={email} 
+                        placeholder="exemplo@email.com" 
+                        onChange={(evento) => setEmail(evento.target.value) } /><FaEnvelope className="emailIcon"/> 
                     </div>
                     <div className="inputSenhaContainer">
-                        <input type="text" value={""} placeholder="Senha"/><FaLock className="senhaIcon"/>
+                        <input 
+                        type="text" 
+                        value={senha} 
+                        placeholder="Senha"
+                        onChange={(evento) => setSenha(evento.target.value) }/><FaLock className="senhaIcon"/>
                     </div>
                     
-                    <button>Cadastrar</button>
+                    <button onClick={""}>Cadastrar</button>
                 </form>
             </div>
         </div>

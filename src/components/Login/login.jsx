@@ -20,7 +20,7 @@ const Login = () => {
     return (
 
         <div className="login">
-            <div>
+            <div className="imgLogin">
                 <img src={login} alt="foto de cães e gatos" />
             </div>
             <div className="formularioLogin">
@@ -37,7 +37,8 @@ const Login = () => {
                     </div>
                     
                     <button>Entrar</button>
-                    <a href="#">Não é cadastrado?</a>
+                    {/* aqui acredito que seja href={/cadastro} */}
+                    <a href="">Não é cadastrado?</a> 
                 </form>
             </div>
         </div>
