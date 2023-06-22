@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# DEVin-Adotion
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é um sistema de controle de estoque para ONGs. Com ele é possível identificar a quantidade de estoque de produtos para tratamento e alimentação de cães e gatos, de acordo com sua categoria de adulto ou filhote.
 
-## Available Scripts
+## Funcionalidades do projeto
 
-In the project directory, you can run:
+✔️ Cadastro de Usuário
+* Nome
+* E-mail
+* Senha
 
-### `npm start`
+✔️ Login de Usuário
+* E-mail
+* Senha
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+✔️ Estoque
+* Nome do Estoque
+* ?
+* ?
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+✔️ Produtos
+* Nome do Produto
+* Quantidade
+* Tipo de Produto
+    * gato
+    * cachorro
+* Categoria de animal
+    * Filhote
+    * Adulto
 
-### `npm test`
+## Layout
+### Tela de Cadastro
+![tela-cadastro](./assets/tela-cadastro.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Tela de Login
+![tela-login](./assets/tela-login.png)
 
-### `npm run build`
+![Alt text](image.png) aqui printar demais telas depois de prontas
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Como rodar este projeto ?
+```bash
+# Clone este repositório
+$ Git clone link-do-repositório
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Acesse a pasta do projeto no seu terminal
+$ cd adotation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Instale as dependências
+$ npm install
 
-### `npm run eject`
+# Execute a aplicação
+$ npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# A aplicação será iniciada na porta 3000, acesse pelo navegador http://localhost:3000
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Tecnologias utilizadas
+✔️ React
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+✔️ React Router
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+✔️ React Icons
 
-## Learn More
+✔️ CSS
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+✔️ HTML
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Alt text](image.png)não sei se faltou alguma ou se devemos ignorar html e css 
 
-### Code Splitting
+#
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 👏Pessoas envolvidas no projeto
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<a href= "https://www.linkedin.com/in/maristelapeglow/" target= "_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target= "_blank"/> Maristela
+#
+<a href= "https://www.linkedin.com/in/renato-aires-5128b7189/" target= "_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target= "_blank"/> Renato
+#
+<a href= "https://www.linkedin.com/in/vini-andrade-35ab6421/" target= "_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target= "_blank"/> Vinícius
