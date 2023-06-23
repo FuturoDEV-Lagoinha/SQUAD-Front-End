@@ -3,6 +3,7 @@ import login from '../../assets/login.jpg';
 import logo from '../../assets/logo.png';
 import { FaEnvelope, FaLock} from "react-icons/fa";
 import './style.css';
+import { Link, useNavigate } from "react-router-dom";
 
 
 const Login = () => {
@@ -15,6 +16,26 @@ const Login = () => {
 
     const senhaDoUsuario = (event) => {
         setSenha(event.target.value);
+    }
+
+    const navigate = useNavigate();
+    const acessaDashboard = (email, senha) => {
+        navigate(`/produto`);
+        }
+
+    const validarUsuario = () => {
+        fetch(`http://localhost:8080/login`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+             email,
+             senha
+   }),
+        }).then(() => {
+            acessaDashboard();
+        })
     }
 
     return (
@@ -30,15 +51,14 @@ const Login = () => {
                     <span>Seja bem vindo</span>
                     
                     <div className="inputEmailContainer">
-                        <input type="text" value={""} placeholder="exemplo@email.com" /><FaEnvelope className="emailIcon"/> 
+                        <input type="text" value={email} placeholder="exemplo@email.com" onChange={emailDoUsuario}/><FaEnvelope className="emailIcon"/> 
                     </div>
                     <div className="inputSenhaContainer">
-                        <input type="text" value={""} placeholder="Senha"/><FaLock className="senhaIcon"/>
+                        <input type="password" value={senha} placeholder="Senha" onChange={senhaDoUsuario}/><FaLock className="senhaIcon"/>
                     </div>
                     
-                    <button>Entrar</button>
-                    {/* aqui acredito que seja href={/cadastro} */}
-                    <a href="">Não é cadastrado?</a> 
+                    <button type="button" onClick={validarUsuario}>Entrar</button>
+                    <Link to = {"/cadastro"}>Não é cadastrado?</Link> 
                 </form>
             </div>
         </div>

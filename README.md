@@ -30,10 +30,10 @@ Este projeto é um sistema de controle de estoque para ONGs. Com ele é possíve
 
 ## Layout
 ### Tela de Cadastro
-![tela-cadastro](./assets/tela-cadastro.png)
+![tela-cadastro](./docs/imagens/tela-cadastro.png)
 
 ### Tela de Login
-![tela-login](./assets/tela-login.png)
+![tela-login](./docs/imagens/tela-login.png)
 
 ![Alt text](image.png) aqui printar demais telas depois de prontas
 

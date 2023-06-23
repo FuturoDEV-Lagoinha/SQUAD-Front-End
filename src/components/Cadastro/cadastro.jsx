@@ -3,28 +3,35 @@ import logo from '../../assets/logo.png';
 import cadastro from '../../assets/cadastro.jpg';
 import {FaEnvelope, FaLock, FaUserCircle} from 'react-icons/fa';
 import './style.css';
+import { useNavigate } from "react-router-dom";
 
 const Cadastro = () => {
 
-    // const [usuario, setUsuario] = useState({
-    //     nome:"",
-    //     email:"",
-    //     senha:""
-    // });
     const [nome, setNome] = useState();
     const [email, setEmail] = useState();
     const [senha, setSenha] = useState();
 
-    // const cadastrarUsuario = () => {
-    //     fetch(`http://localhost:8080/usuario`, {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify(usuario),
-    //     });
-    //     console.log(usuario);
-    // }
+    const navigate = useNavigate();
+    const acessarLogin = (nome, email, senha) => {
+        navigate(`/login`);
+        }
+
+    //captura os dados digitados pelo usuário
+    const cadastrarUsuario = () => {
+        fetch(`http://localhost:8080/usuario`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+             nome,   
+             email,
+             senha
+            }),
+        }).then(() => {
+            acessarLogin();
+        })
+    }
     
     return(
         <div className="cadastro">
@@ -58,8 +65,9 @@ const Cadastro = () => {
                         placeholder="Senha"
                         onChange={(evento) => setSenha(evento.target.value) }/><FaLock className="senhaIcon"/>
                     </div>
-                    
-                    <button onClick={""}>Cadastrar</button>
+
+                    {/* importante utilizar type=button devido reload da página  */}
+                    <button type="button" onClick={cadastrarUsuario}>Cadastrar</button>
                 </form>
             </div>
         </div>
