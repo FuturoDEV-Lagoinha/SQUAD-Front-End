@@ -1,5 +1,4 @@
 import React, {  useEffect, useState } from "react";
-import EditProduto from "../EditProduto/editProduto";
 import { useProdutoContext, ProdutoProvider } from "../contexts/ProdutoContext";
 import "../ProdutosList/produtosList.css";
 import ProdutoEdit from "../ProdutoEdit/produtoEdit";
