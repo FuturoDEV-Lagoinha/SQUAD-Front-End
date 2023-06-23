@@ -1,13 +1,15 @@
-import React, {  useEffect, useState } from "react";
+import React, {  useContext, useEffect, useState } from "react";
 import "../ProdutosList/produtosList.css";
 import { useNavigate } from "react-router-dom";
+import { ProdutoContext } from "../contexts/ProdutoContext";
 
 const ProdutosList = () => {
 
 
-    const [produtos, setProdutos] = useState([]);
+    const {produtosList, setProdutosList, deletaProduto} = useContext(ProdutoContext);
 
-    const listaProdutos = () => {
+
+/*      const listaProdutos = () => {
         fetch(`http://localhost:8080/produto`, {
             method: "GET",
             headers: {
@@ -16,35 +18,21 @@ const ProdutosList = () => {
         })
         .then((response) => {return response.json()})
         .then((dadosDoProduto) => {setProdutos(dadosDoProduto)});
-    }
-    
-    useEffect(() => {
-        listaProdutos();
-    }, []);
+    } */
 
     const navigate = useNavigate();
 
     const editaProduto = (produto) => {
         navigate(`/produto/${produto.id}/edit`);
-    }
-
-    const deletaProduto = (idDoProduto) => {
-        fetch(`http://localhost:8080/produto/${idDoProduto}`,{
-            method: "DELETE",
-        })
-        .then(() => {
-            listaProdutos();
-          });
-    }
-
+      }
 
     return(
         <div>
             <h3 className="lista">Lista de Produtos</h3>
 
-            {produtos.map((produto) => (
+            {produtosList.map((produto) => (
                 <div className="produtos-cartoes">
-                    <ul>
+                    <ul> 
                         <li className="produto-card" key={produto.id}>{produto.produto}</li>
                         <li>{produto.animal}</li>
                         <li>{produto.categoria}</li>

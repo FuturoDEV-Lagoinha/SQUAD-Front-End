@@ -1,21 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./produto.css";
 import ProdutosList from "../ProdutosList/produtosList";
+import { ProdutoContext, ProdutoProvider, useProdutoContext } from "../contexts/ProdutoContext";
 //import { ProdutoProvider, useProdutoContext } from "../contexts/ProdutoContext";
 
 const Produto = () => {
 
-    const [produto, setProduto] = useState({
+    /* const [produto, setProduto] = useState({
         estoque: "",
         produto: "",
         animal: "",
         quantidade: "",
         categoria: "",
-    });
+    }); */
 
-    const [produtos, setProdutos] = useState([]);
+    //const [produtos, setProdutos] = useState([]);
 
-    const adicionaProduto = () => {
+    //const {produtosList, setProdutosList, produto, setProduto} = useProdutoContext();
+
+    
+    const {produtosList, setProdutosList} = useContext(ProdutoContext);
+    
+    const {produto, setProduto} = useContext(ProdutoContext);
+
+    const adicionaProduto = (e) => {
+        e.preventDefault();
         fetch(`http://localhost:8080/produto`, {
             method: "POST",
             headers: {
@@ -24,6 +33,7 @@ const Produto = () => {
             body: JSON.stringify(produto),
         });
         console.log(produto);
+        setProdutosList(...produtosList, produto);
     }
 
     const [estoque, setEstoque] = useState([])
@@ -103,7 +113,7 @@ const Produto = () => {
 
             </form>
             <div className="lista-de-produtos">
-                <ProdutosList produtos={produtos}/>
+                <ProdutosList produto={produto} setProduto={setProduto} />
             </div>
 
 

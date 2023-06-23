@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./produtoEdit.css";
 import { useParams, useNavigate } from "react-router-dom";
+import { ProdutoContext } from "../contexts/ProdutoContext";
 //import { ProdutoProvider, useProdutoContext } from "../contexts/ProdutoContext";
 
 
@@ -9,6 +10,8 @@ const ProdutoEdit = () => {
 
     const params = useParams();
     console.log(params);
+
+    const {listaProdutos} = useContext(ProdutoContext);
 
     const [produto, setProduto] = useState({
         estoque: "",
@@ -41,12 +44,13 @@ const ProdutoEdit = () => {
             },
             body: JSON.stringify(produto),
         })
-        console.log(params.id);
+        .then(() => listaProdutos());
     }
 
     const navigate = useNavigate();
 
     const voltar = () => {
+
         navigate(`/produto`);
     }
 
