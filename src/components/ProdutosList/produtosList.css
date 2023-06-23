@@ -1,0 +1,32 @@
+.produtos-cartoes {
+    display:inline-block;
+    font-display:initial;
+    text-align:justify;
+    text-decoration-line:inherit;
+    justify-content:flex-start;
+    background-color: brown;
+    width: auto;
+    border-radius: 20px;
+}
+
+
+
+.produto-card {
+    display:block;
+    flex-direction:row-reverse;
+    /* align-items: center; */
+    justify-content:space-around;
+    padding: 4rem;
+    border: 1px solid #eaeaea;
+    border-radius: 22px;
+    transition: color 0.15s ease, border-color 0.15 ease;
+    width: 15vw;
+    font-size: 27px;
+    line-height: 18px;
+    color: rgb(240, 235, 235);
+}
+
+
+.lista {
+    color: chocolate;
+}

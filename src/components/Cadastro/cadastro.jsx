@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 //import logo from './assets/logo.png'
-import {FaEnvelope } from 'react-icons/fa';
-
+/* import {FaEnvelope } from 'react-icons/fa';
+ */
 const Cadastro = () => {
     const [nome, setNome] = useState();
     const [email, setEmail] = useState();

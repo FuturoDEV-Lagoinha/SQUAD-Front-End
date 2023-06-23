@@ -1,6 +1,7 @@
-import React, {  useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./produto.css";
-import ProdutosList from "./produtosList";
+import ProdutosList from "../ProdutosList/produtosList";
+//import { ProdutoProvider, useProdutoContext } from "../contexts/ProdutoContext";
 
 const Produto = () => {
 
@@ -13,8 +14,6 @@ const Produto = () => {
     });
 
     const [produtos, setProdutos] = useState([]);
-
-
 
     const adicionaProduto = () => {
         fetch(`http://localhost:8080/produto`, {
@@ -44,17 +43,14 @@ const Produto = () => {
         listaEstoques();
     }, []); 
 
-
-
     console.log(estoque);
-
-
 
     return(
         <div className="cadastro-produto">
 
             <h3>Cadastro de Produto</h3>
-            
+            <form>
+
             <label>Estoque: </label>
             <select 
             value={produto.estoque}
@@ -103,8 +99,9 @@ const Produto = () => {
                 <option value={"adulto"}>Adulto</option>
             </select>
             
-            <button onClick={adicionaProduto}>Confirmar Cadastro de Produto</button>
+            <button type="button" onClick={adicionaProduto}>Confirmar Cadastro de Produto</button>
 
+            </form>
             <div className="lista-de-produtos">
                 <ProdutosList produtos={produtos}/>
             </div>

@@ -1,7 +1,9 @@
-import React, {  useState, useEffect } from "react";
-
-
-
+import React, {  useEffect, useState } from "react";
+import EditProduto from "../EditProduto/editProduto";
+import { useProdutoContext, ProdutoProvider } from "../contexts/ProdutoContext";
+import "../ProdutosList/produtosList.css";
+import ProdutoEdit from "../ProdutoEdit/produtoEdit";
+import { useNavigate } from "react-router-dom";
 
 const ProdutosList = () => {
 
@@ -23,29 +25,11 @@ const ProdutosList = () => {
         listaProdutos();
     }, []);
 
-    const acessaIdProduto = (idDoProduto) => {
-        fetch(`http://localhost:8080/produto/${idDoProduto}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
-        .then((response) => {return response.json()})
-        .then((dadosDoProduto) => {setProdutos(dadosDoProduto)});
-    }
+    const navigate = useNavigate();
 
-    const editaProduto = (idDoProduto, dadosDoProduto) => {
-        fetch(`hppt://localhost:8080/produto/${idDoProduto}`,{
-            method: "PUT",
-            headers: {
-                'Content-Type': "application/json",
-            },
-            body: JSON.stringify(dadosDoProduto),
-        }).then(() => {
-            listaProdutos();
-          });
+    const editaProduto = (produto) => {
+        navigate(`/produto/${produto.id}/edit`);
     }
-
 
     const deletaProduto = (idDoProduto) => {
         fetch(`http://localhost:8080/produto/${idDoProduto}`,{
@@ -59,12 +43,12 @@ const ProdutosList = () => {
 
     return(
         <div>
-            <h3>Lista de Produtos</h3>
+            <h3 className="lista">Lista de Produtos</h3>
 
             {produtos.map((produto) => (
-                <div>
+                <div className="produtos-cartoes">
                     <ul>
-                        <li key={produto.id}>{produto.produto}</li>
+                        <li className="produto-card" key={produto.id}>{produto.produto}</li>
                         <li>{produto.animal}</li>
                         <li>{produto.categoria}</li>
                         <li>{produto.quantidade}</li>
@@ -82,3 +66,5 @@ const ProdutosList = () => {
 }
 
 export default ProdutosList;
+
+// onClick={() => setShowEditProduto(true) && {/* <EditProduto /> */}}
