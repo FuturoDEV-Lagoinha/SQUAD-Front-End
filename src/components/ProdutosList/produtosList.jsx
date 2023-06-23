@@ -1,7 +1,5 @@
 import React, {  useEffect, useState } from "react";
-import { useProdutoContext, ProdutoProvider } from "../contexts/ProdutoContext";
 import "../ProdutosList/produtosList.css";
-import ProdutoEdit from "../ProdutoEdit/produtoEdit";
 import { useNavigate } from "react-router-dom";
 
 const ProdutosList = () => {
@@ -52,7 +50,6 @@ const ProdutosList = () => {
                         <li>{produto.categoria}</li>
                         <li>{produto.quantidade}</li>
                         <button 
-                        /* onClick={() => acessaIdProduto(produto.id)} */
                         onClick={() => editaProduto(produto)}>Editar Produto</button>
                         <button onClick={() => deletaProduto(produto.id)}>Apagar Produto</button>
 
