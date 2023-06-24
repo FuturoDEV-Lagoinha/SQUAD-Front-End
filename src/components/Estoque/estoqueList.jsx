@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { EstoqueContext } from "../contexts/estoqueContext";
 
@@ -23,7 +23,7 @@ const EstoqueList = () => {
                             <li>{estoque.nome}</li>
                             <li>{estoque.animal}</li>
                         </ul>
-                        <button onClick={() =>editaEstoque (estoque)}>Editar</button>
+                        <button onClick={editaEstoque}>Editar</button>
                         <button >Deletar</button>
                     </div>
                 ))
