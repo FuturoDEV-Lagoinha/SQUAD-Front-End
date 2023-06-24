@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import EstoqueList from "./estoqueList";
 
+
 const Estoque = () => {
     const [estoque, setEstoque] = useState({
         nome: "",
