@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { EstoqueContext } from "../contexts/estoqueContext";
 
-const EstoqueList = ({ estoques }) => {
+const EstoqueList = () => {
 
-    //<Button text="Editar" />
-    //<button type="text" onClick={() => atualizarEstoque(estoque)}>Editar</button>
-
+    const context = useContext(EstoqueContext);
+    
     const navigate = useNavigate();
 
     const editaEstoque = (estoque) => {
@@ -17,13 +17,13 @@ const EstoqueList = ({ estoques }) => {
         <div>
             <h3>Armazenamento de cadastro</h3>
             {
-                estoques.map((estoque) => (
+                context.estoques.map((estoque) => (
                     <div key={estoque.id}>
                         <ul>
                             <li>{estoque.nome}</li>
                             <li>{estoque.animal}</li>
                         </ul>
-                        <button onClick={() =>editaEstoque (estoque)}>Editar</button>
+                        <button onClick={editaEstoque}>Editar</button>
                         <button >Deletar</button>
                     </div>
                 ))

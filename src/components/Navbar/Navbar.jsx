@@ -11,10 +11,7 @@ const Navbar = () => {
             <img src={logo} alt="logo ilustração de patinhas de pets" />
             <ul>
                 <li>
-                    <Link to='/'>Login</Link>
-                </li>
-                <li>
-                    <Link to='/cadastro'>Cadastro</Link>
+                    <Link to='/home'>Home</Link>
                 </li>
                 <li>
                     <Link to='/estoque'>Estoque</Link>

@@ -2,8 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import "./produtoEdit.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { ProdutoContext } from "../contexts/ProdutoContext";
-//import { ProdutoProvider, useProdutoContext } from "../contexts/ProdutoContext";
-
 
 
 const ProdutoEdit = () => {
@@ -11,15 +9,15 @@ const ProdutoEdit = () => {
     const params = useParams();
     console.log(params);
 
-    const {listaProdutos} = useContext(ProdutoContext);
+    const {listaProdutos, produto, setProduto} = useContext(ProdutoContext);
 
-    const [produto, setProduto] = useState({
+    /* const [produto, setProduto] = useState({
         estoque: "",
         produto: "",
         animal: "",
         quantidade: "",
         categoria: "",
-    });
+    }); */
 
     const buscarProduto = (id) => {
         fetch(`http://localhost:8080/produto/${params.id}`, {
@@ -36,7 +34,7 @@ const ProdutoEdit = () => {
         buscarProduto();
     }, []);
 
-    const salvaProduto = () => {
+    const salvaProduto = (id) => {
         fetch(`http://localhost:8080/produto/${params.id}`, {
             method: "PUT",
             headers: {
@@ -50,7 +48,6 @@ const ProdutoEdit = () => {
     const navigate = useNavigate();
 
     const voltar = () => {
-
         navigate(`/produto`);
     }
 

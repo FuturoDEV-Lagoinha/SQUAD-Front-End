@@ -1,4 +1,4 @@
-import { BrowserRouter, Outlet, Route, Routes, createBrowserRouter } from "react-router-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Login from "./components/Login/login";
 import Estoque from "./components/Estoque/estoque";
 import Produto from "./components/Produto/produto";
@@ -9,34 +9,8 @@ import Navbar from "./components/Navbar/Navbar";
 import EstoqueEdit from "./components/Estoque/estoqueEdit";
 
 
-/* const Login = () => <p>Login</p>
-const Cadastro = () => <p>Cadastro</p>
-const DashBoard = () => <p>DashBoard</p>
-
-const routes = createBrowserRouter([
-    {path: '/', element: <Login />},
-    {path: 'login', element: <Login />},
-    {path: 'cadastro', element: <DashBoardOutlet />},
-    {path: 'dashboard', children: [
-        {index: true, element: <DashBoard />}
-        {path: 'armazem', element: <Login />},
-        {path: 'estoque', element: <Login />},
-    ]},
-])
-
-const DashBoardOutlet = ( => {
-    return(
-        <div>
-            <Navbar />
-            <Outlet />
-        </div>
-    )
-}) */
-
 const AppRoutes = () => {
 
-/*     const [selectedButton, setSelectedButton] = useState("dashboard");
- */
 
     return (
         <BrowserRouter>

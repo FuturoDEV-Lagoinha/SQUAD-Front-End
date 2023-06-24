@@ -21,7 +21,7 @@ const Login = () => {
     //preciso mudar o navigate para /dashboard
     const navigate = useNavigate();
     const acessarDashboard = (email, senha) => {
-        navigate(`/produto`);
+        navigate(`/home`);
         }
 
     const validarUsuario = () => {
