@@ -31,7 +31,7 @@ useEffect(() => {
 }, []);
 
 
-const adicionaProduto = (e) => {
+const adicionaProduto = () => {
   fetch(`http://localhost:8080/produto`, {
       method: "POST",
       headers: {
