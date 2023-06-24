@@ -43,21 +43,7 @@ const EstoqueProvider = ({ children }) => {
         /* console.log(params.id);
         console.log(estoque); */
     };
-
-    //
-    const atualizarEstoque = (estoque, dadosDoEstoque) => {
-
-        fetch(`http://localhost:8080/estoque/${estoque.id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(dadosDoEstoque),
-        }).then(() => {
-            ListarEstoques();
-        });
-    };
-
+    
     return (
         <EstoqueContext.Provider value={{
             estoque,
@@ -65,8 +51,7 @@ const EstoqueProvider = ({ children }) => {
             ListarEstoques,
             estoques,
             setEstoques,
-            adicionarEstoque,
-            atualizarEstoque
+            adicionarEstoque
             }}>
             {children}
         </EstoqueContext.Provider>
