@@ -10,7 +10,9 @@ function App() {
 
       <EstoqueProvider>
         <ProdutoProvider>
-          <AppRoutes />
+        
+            <AppRoutes />
+         
         </ProdutoProvider>
       </EstoqueProvider>
 
