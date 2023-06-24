@@ -1,42 +1,39 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { EstoqueContext } from "../contexts/estoqueContext";
 
 const EstoqueEdit = () => {
 
-    const [estoque, setEstoque]= useState({
-        nome: "",
-        animal: ""
-    });
+    //trazando o contexto para essa pagina
+    const {estoque, setEstoque, atualizarEstoque } = useContext(EstoqueContext);
+
+    const navigate = useNavigate();
 
     const params = useParams();
 
+    const voltarPagina = (estoque) => {
+        navigate(`/estoque`);
+    }
+    
     const buscarEstoque = (id) => {
+
         fetch(`http://localhost:8080/estoque/${params.id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
             },
         })
-        .then((response) => {return response.json()})
-        .then((dadosDoEstoque) => {setEstoque(dadosDoEstoque)});
+            .then((response) => { return response.json() })
+            .then((dadosDoEstoque) => { setEstoque(dadosDoEstoque) });
     }
-    useEffect(() =>{
+
+    useEffect(() => {
         buscarEstoque();
     }, []);
 
-    const adicionarEstoque = () =>{
-        fetch(`http://localhost:8080/estoque/${params.id}`,{
-            method: "PUT",
-            headers:{
-                "Content-Type": "application/json",
-            },
-            body:JSON.stringify(estoque),
 
-        })
-        console.log(params.id);
-        console.log(estoque);
-    }
-    
+
+
     return(
         <div>
             <h3>Editar de Armazenamento</h3>
@@ -60,9 +57,7 @@ const EstoqueEdit = () => {
                 <option value={"cachorro"}>Cachorro</option>
             </select>                
             
-            <button onClick={adicionarEstoque} >Editar</button>
-            
-    
+            <button onClick={ atualizarEstoque && voltarPagina }>Editar</button>    
            
         </div>
     )
