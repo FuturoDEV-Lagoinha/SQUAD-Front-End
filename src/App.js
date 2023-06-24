@@ -7,17 +7,13 @@ import { ProdutoProvider } from './components/contexts/ProdutoContext';
 function App() {
   return (
     <div className="App">
-<<<<<<< HEAD
+
       <EstoqueProvider>
-        <AppRoutes />
+        <ProdutoProvider>
+          <AppRoutes />
+        </ProdutoProvider>
       </EstoqueProvider>
-=======
 
-      <ProdutoProvider>
-        <AppRoutes />
-      </ProdutoProvider>
-
->>>>>>> refs/remotes/origin/main
     </div>
   );
 }

@@ -1,32 +1,78 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const EstoqueContext = createContext();
 
-const EstoqueProvider = ({ children }) =>{
+const EstoqueProvider = ({ children }) => {
+
     const [estoque, setEstoque] = useState({
         nome: "",
         animal: ""
     });
+    
+    const params = useParams();
 
     const [estoques, setEstoques] = useState([]);
-
-    const ListarEstoques = ( ) => {
+    
+    const ListarEstoques = () => {
 
         fetch('http://localhost:8080/estoque', {
-        method: "GET"
-        }).then((estoque) =>{
-        return estoque.json();
+            method: "GET"
+        }).then((estoque) => {
+            return estoque.json();
         }).then((response) => setEstoques(response));
     };
 
+    useEffect(() => {
+        ListarEstoques();
+    }, []);
 
-    return(
-    <EstoqueContext.Provider value={ {estoque, setEstoque, ListarEstoques, estoques} }>
-        {children}
-    </EstoqueContext.Provider>
+    
+    //salvando Estoque
+    const adicionarEstoque = () => {
+
+        fetch(`http://localhost:8080/estoque`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(estoque),
+        }).then(() =>{
+            ListarEstoques();
+        })
+        /* console.log(params.id);
+        console.log(estoque); */
+    };
+
+    //
+    const atualizarEstoque = (estoque, dadosDoEstoque) => {
+
+        fetch(`http://localhost:8080/estoque/${estoque.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(dadosDoEstoque),
+        }).then(() => {
+            ListarEstoques();
+        });
+    };
+
+    return (
+        <EstoqueContext.Provider value={{
+            estoque,
+            setEstoque,
+            ListarEstoques,
+            estoques,
+            setEstoques,
+            adicionarEstoque,
+            atualizarEstoque
+            }}>
+            {children}
+        </EstoqueContext.Provider>
 
     )
-    
+
 }
 export {
     EstoqueProvider,

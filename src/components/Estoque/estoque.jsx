@@ -1,65 +1,19 @@
 
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import EstoqueList from "./estoqueList";
 import { EstoqueContext } from "../contexts/estoqueContext";
 
 const Estoque = ({children}) => {
-    const [estoque, setEstoque] = useState({
-        nome: "",
-        animal: ""
-    });
    
     //estado que recebe os valores do estoque
     const [estoques, setEstoques] = useState([]);
-    
 
-    /* const listarEstoques = ( ) => {
-
-        fetch('http://localhost:8080/estoque', {
-        method: "GET"
-        }).then((estoque) =>{
-        return estoque.json();
-        }).then((response) => setEstoques(response));
-    }; */
-
-    //event.preventDefault(); ??
-    const {ListarEstoques} = useContext(EstoqueContext);
-
-    //salvando Estoque
-    const adicionarEstoque = () => {
-
-        fetch(`http://localhost:8080/estoque`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(estoque),
-        }).then(()  =>{
-            ListarEstoques();
-        });
-    };
-    useEffect(() =>{
-        ListarEstoques();
-    }, []);
-
-    //criando funcao para editar estoque 
-    const atualizarEstoque = (estoque, dadosDoEstoque) => {
-        fetch(`http://localhost:8080/estoque/${estoque.id}`, {
-            method:"PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(dadosDoEstoque),
-        }).then(() =>{
-            ListarEstoques();
-        });
-    };
-
-    
+    const { adicionarEstoque, estoque, setEstoque } = useContext(EstoqueContext);
+ 
     return(
         <div>
             <h3>Cadastro de Armazenamento</h3>
-            <label htmlFor="">Nome:</label>
+            <label>Nome:</label>
             <input
                 type="text"
                 value={estoque.nome}
@@ -68,7 +22,7 @@ const Estoque = ({children}) => {
             />
             
             
-            <label htmlFor="">Estoque para:</label>
+            <label>Estoque para:</label>
             <select
                 type="text"
                 value={estoque.animal}

@@ -6,8 +6,6 @@ const EstoqueList = () => {
 
     const context = useContext(EstoqueContext);
     
-    
-
     const navigate = useNavigate();
 
     const editaEstoque = (estoque) => {
