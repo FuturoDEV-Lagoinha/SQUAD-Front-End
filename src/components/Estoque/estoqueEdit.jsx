@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { EstoqueContext } from "../contexts/estoqueContext";
 
 const EstoqueEdit = () => {
 
-    const [estoque, setEstoque]= useState({
-        nome: "",
-        animal: ""
-    });
+    //trazando o contexto para essa pagina
+    const {estoque, setEstoque} = useContext(EstoqueContext);
 
     const params = useParams();
 

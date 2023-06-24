@@ -1,8 +1,9 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import EstoqueList from "./estoqueList";
+import { EstoqueContext } from "../contexts/estoqueContext";
 
-const Estoque = () => {
+const Estoque = ({children}) => {
     const [estoque, setEstoque] = useState({
         nome: "",
         animal: ""
@@ -12,16 +13,17 @@ const Estoque = () => {
     const [estoques, setEstoques] = useState([]);
     
 
-    const listarEstoques = ( ) => {
+    /* const listarEstoques = ( ) => {
 
         fetch('http://localhost:8080/estoque', {
         method: "GET"
         }).then((estoque) =>{
         return estoque.json();
         }).then((response) => setEstoques(response));
-    };
+    }; */
 
     //event.preventDefault(); ??
+    const {ListarEstoques} = useContext(EstoqueContext);
 
     //salvando Estoque
     const adicionarEstoque = () => {
@@ -33,11 +35,11 @@ const Estoque = () => {
             },
             body: JSON.stringify(estoque),
         }).then(()  =>{
-            listarEstoques();
+            ListarEstoques();
         });
     };
     useEffect(() =>{
-        listarEstoques();
+        ListarEstoques();
     }, []);
 
     //criando funcao para editar estoque 
@@ -49,7 +51,7 @@ const Estoque = () => {
             },
             body: JSON.stringify(dadosDoEstoque),
         }).then(() =>{
-            listarEstoques();
+            ListarEstoques();
         });
     };
 
@@ -79,7 +81,7 @@ const Estoque = () => {
             
             <button onClick={adicionarEstoque} >Cadastrar</button>
             
-            <EstoqueList estoques={estoques} listarEstoques={listarEstoques} />
+            <EstoqueList estoques={estoques} />
            
         </div>
     )
