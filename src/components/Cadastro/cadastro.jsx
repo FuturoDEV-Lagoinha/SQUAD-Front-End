@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo.jpg';
 import cadastro from '../../assets/cadastro.jpg';
 import {FaEnvelope, FaLock, FaUserCircle} from 'react-icons/fa';
 import './style.css';
@@ -12,6 +12,7 @@ const Cadastro = () => {
     const [senha, setSenha] = useState();
 
     const navigate = useNavigate();
+    //navega para a página login
     const acessarLogin = (nome, email, senha) => {
         navigate(`/login`);
         }
@@ -41,7 +42,6 @@ const Cadastro = () => {
             <div className="formularioCadastro">
                 <form>
                     <img src={logo} alt="ilustração de patinhas de pets" />
-                    <h3>DEVIN - ADOÇÃO</h3>
                     <span>Cadastro</span>
                     
                     <div className="inputNomeContainer">

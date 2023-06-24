@@ -6,7 +6,7 @@ import { ProdutoContext } from "../contexts/ProdutoContext";
 const ProdutosList = () => {
 
 
-    const {produtosList, setProdutosList, deletaProduto} = useContext(ProdutoContext);
+    const {produtosList, deletaProduto} = useContext(ProdutoContext);
 
 
 /*      const listaProdutos = () => {

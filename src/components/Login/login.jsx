@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import login from '../../assets/login.jpg';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo.jpg';
 import { FaEnvelope, FaLock} from "react-icons/fa";
 import './style.css';
 import { Link, useNavigate } from "react-router-dom";
@@ -17,9 +17,10 @@ const Login = () => {
     const senhaDoUsuario = (event) => {
         setSenha(event.target.value);
     }
-
+    //navega para dashboard
+    //preciso mudar o navigate para /dashboard
     const navigate = useNavigate();
-    const acessaDashboard = (email, senha) => {
+    const acessarDashboard = (email, senha) => {
         navigate(`/produto`);
         }
 
@@ -34,7 +35,7 @@ const Login = () => {
              senha
    }),
         }).then(() => {
-            acessaDashboard();
+            acessarDashboard();
         })
     }
 
@@ -47,7 +48,6 @@ const Login = () => {
             <div className="formularioLogin">
                 <form>
                     <img src={logo} alt="logo ilustração de patinhas de pets" />
-                    <h3>DEVIN - ADOÇÃO</h3>
                     <span>Seja bem vindo</span>
                     
                     <div className="inputEmailContainer">

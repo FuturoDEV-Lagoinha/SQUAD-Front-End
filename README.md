@@ -15,8 +15,9 @@ Este projeto é um sistema de controle de estoque para ONGs. Com ele é possíve
 
 ✔️ Estoque
 * Nome do Estoque
-* ?
-* ?
+* Tipo de Produtos
+    * gato
+    * cachorro
 
 ✔️ Produtos
 * Nome do Produto

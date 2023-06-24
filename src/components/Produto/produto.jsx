@@ -1,43 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./produto.css";
 import ProdutosList from "../ProdutosList/produtosList";
-import { ProdutoContext, ProdutoProvider, useProdutoContext } from "../contexts/ProdutoContext";
-//import { ProdutoProvider, useProdutoContext } from "../contexts/ProdutoContext";
+import { ProdutoContext } from "../contexts/ProdutoContext";
 
 const Produto = () => {
-
-    /* const [produto, setProduto] = useState({
-        estoque: "",
-        produto: "",
-        animal: "",
-        quantidade: "",
-        categoria: "",
-    }); */
-
-    //const [produtos, setProdutos] = useState([]);
-
-    //const {produtosList, setProdutosList, produto, setProduto} = useProdutoContext();
-
     
-    const {produtosList, setProdutosList} = useContext(ProdutoContext);
-    
-    const {produto, setProduto} = useContext(ProdutoContext);
-
-    const adicionaProduto = (e) => {
-        e.preventDefault();
-        fetch(`http://localhost:8080/produto`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(produto),
-        });
-        console.log(produto);
-        setProdutosList(...produtosList, produto);
-    }
+    const {produto, setProduto, adicionaProduto} = useContext(ProdutoContext);
 
     const [estoque, setEstoque] = useState([])
-
+    
     const listaEstoques = () => {
         fetch(`http://localhost:8080/estoque`, {
             method: "GET",
@@ -48,19 +19,17 @@ const Produto = () => {
         .then((response) => {return response.json()})
         .then((dadosDoEstoque) => {setEstoque(dadosDoEstoque)});
     }
-
+    
     useEffect(() => {
         listaEstoques();
     }, []); 
-
+    
     console.log(estoque);
-
     return(
         <div className="cadastro-produto">
 
             <h3>Cadastro de Produto</h3>
             <form>
-
             <label>Estoque: </label>
             <select 
             value={produto.estoque}
@@ -68,6 +37,16 @@ const Produto = () => {
                 {estoque.map((armazem) => {
                     return <option value={armazem.id} key={armazem.id}>{armazem.nome}</option>
                 })}
+            </select>
+
+            <label>Animal: </label>
+            <select
+            value={produto.animal} 
+            onChange={(evento) => setProduto({...produto, animal: evento.target.value})}
+            >
+                <option>...</option>
+                <option value={"cachorro"}>Cachorro</option>
+                <option value={"gato"}>Gato</option>
             </select>
             
             <label>Tipo do Produto: </label>
@@ -89,15 +68,6 @@ const Produto = () => {
                 onChange={(evento) => setProduto({...produto, quantidade: evento.target.value})}
             />
 
-            <label>Animal: </label>
-            <select
-            value={produto.animal} 
-            onChange={(evento) => setProduto({...produto, animal: evento.target.value})}
-            > 
-                <option>...</option>
-                <option value={"cachorro"}>Cachorro</option>
-                <option value={"gato"}>Gato</option>
-            </select>
 
             <label>Categoria: </label>
             <select
@@ -108,6 +78,7 @@ const Produto = () => {
                 <option value={"filhote"}>Filhote</option>
                 <option value={"adulto"}>Adulto</option>
             </select>
+            
             
             <button type="button" onClick={adicionaProduto}>Confirmar Cadastro de Produto</button>
 

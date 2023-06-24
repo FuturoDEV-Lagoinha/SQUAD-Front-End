@@ -31,6 +31,20 @@ useEffect(() => {
 }, []);
 
 
+const adicionaProduto = (e) => {
+  fetch(`http://localhost:8080/produto`, {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify(produto),
+  })
+  .then(() =>{
+    //setProdutosList(...produtosList, produto);
+    listaProdutos()
+  })
+
+}
 
 const deletaProduto = (idDoProduto) => {
   fetch(`http://localhost:8080/produto/${idDoProduto}`,{
@@ -43,7 +57,7 @@ const deletaProduto = (idDoProduto) => {
 
 
     return (
-      <ProdutoContext.Provider value={{ produtosList, setProdutosList, produto, setProduto, listaProdutos, deletaProduto }}>
+      <ProdutoContext.Provider value={{ produtosList, setProdutosList, produto, setProduto, listaProdutos, adicionaProduto, deletaProduto }}>
         {children}
       </ProdutoContext.Provider>
     )

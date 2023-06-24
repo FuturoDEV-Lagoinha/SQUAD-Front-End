@@ -1,38 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const EstoqueList = () => {
+const EstoqueList = ({ estoques }) => {
 
-    const[estoques, setEstoques] = useState([]);
+    //<Button text="Editar" />
+    //<button type="text" onClick={() => atualizarEstoque(estoque)}>Editar</button>
 
-    const listaEstoques = () => {
-        fetch(`http://localhost:8080/estoque`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
-        .then((response) => {return response.json()})
-        .then((dadosDoEstoque) => {setEstoques(dadosDoEstoque)});
+    const navigate = useNavigate();
+
+    const editaEstoque = (estoque) => {
+        navigate(`/estoque/${estoque.id}/edit`);
     }
 
-    useEffect(() => {
-        listaEstoques();
-    }, []);
+    return (
 
-    return(
-
-        <div> 
+        <div>
             <h3>Armazenamento de cadastro</h3>
-            { 
-                estoques.map((estoque) =>(
-                    <div>
-
+            {
+                estoques.map((estoque) => (
+                    <div key={estoque.id}>
                         <ul>
-                            <li key={estoque.id}>{estoque.nome}</li>
-                            <li key={estoque.id}>{estoque.animal}</li>
-                            <button>Editar</button>
-                            <button>Deletar</button>
+                            <li>{estoque.nome}</li>
+                            <li>{estoque.animal}</li>
                         </ul>
+                        <button onClick={() =>editaEstoque (estoque)}>Editar</button>
+                        <button >Deletar</button>
                     </div>
                 ))
             }
