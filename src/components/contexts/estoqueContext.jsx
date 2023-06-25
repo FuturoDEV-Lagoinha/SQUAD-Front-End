@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 
 const EstoqueContext = createContext();
 
@@ -9,8 +8,6 @@ const EstoqueProvider = ({ children }) => {
         nome: "",
         animal: ""
     });
-    
-    //const params = useParams();
 
     const [estoques, setEstoques] = useState([]);
     
@@ -43,6 +40,16 @@ const EstoqueProvider = ({ children }) => {
         
     };
 
+    //deletar estoque
+    const deletarEstoque = (idDoEstoque) =>{
+        fetch(`http://localhost:8080/estoque/${idDoEstoque}`, {
+            method: "DELETE",
+        }).then(() => {
+            listarEstoques();
+        });
+    }
+
+
     return (
         <EstoqueContext.Provider value={{
             estoque,
@@ -50,7 +57,8 @@ const EstoqueProvider = ({ children }) => {
             listarEstoques,
             estoques,
             setEstoques,
-            adicionarEstoque
+            adicionarEstoque,
+            deletarEstoque
             }}>
             {children}
         </EstoqueContext.Provider>
