@@ -36,13 +36,11 @@ const EstoqueEdit = () => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(estoque),
-        }).then(() => {
-            ListarEstoques();
-            console.log(estoque);
-        });
+        }).then(() => ListarEstoques());
+
     };
 
-    const voltarPagina = (estoque) => {
+    const voltarPagina = () => {
         navigate(`/estoque`);
     }
 

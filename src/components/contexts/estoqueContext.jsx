@@ -10,7 +10,7 @@ const EstoqueProvider = ({ children }) => {
         animal: ""
     });
     
-    const params = useParams();
+    //const params = useParams();
 
     const [estoques, setEstoques] = useState([]);
     
@@ -43,7 +43,7 @@ const EstoqueProvider = ({ children }) => {
         /* console.log(params.id);
         console.log(estoque); */
     };
-    
+
     return (
         <EstoqueContext.Provider value={{
             estoque,
