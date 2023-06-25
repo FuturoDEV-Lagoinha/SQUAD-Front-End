@@ -2,6 +2,7 @@
 import React, { useContext, useState } from "react";
 import EstoqueList from "./estoqueList";
 import { EstoqueContext } from "../contexts/estoqueContext";
+import "./style.css";
 
 
 const Estoque = ({children}) => {
@@ -13,8 +14,9 @@ const Estoque = ({children}) => {
         const { adicionarEstoque, estoque, setEstoque } = useContext(EstoqueContext);
     
         return(
-            <div>
+            <div className="container">
                 <h3>Cadastro de Armazenamento</h3>
+                <div className="cadastramento">
                 <label>Nome:</label>
                 <input
                     type="text"
@@ -36,7 +38,7 @@ const Estoque = ({children}) => {
                 </select>                
                 
                 <button onClick={adicionarEstoque} >Cadastrar</button>
-                
+                </div>
                 <EstoqueList estoques={estoques} />
             
             </div>

@@ -60,7 +60,7 @@ const Cadastro = () => {
                     </div>
                     <div className="inputSenhaContainer">
                         <input 
-                        type="text" 
+                        type="password" 
                         value={senha} 
                         placeholder="Senha"
                         onChange={(evento) => setSenha(evento.target.value) }/><FaLock className="senhaIcon"/>
