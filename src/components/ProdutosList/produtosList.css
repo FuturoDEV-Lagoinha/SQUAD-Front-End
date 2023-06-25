@@ -1,10 +1,31 @@
-.produtos-cartoes {
+.produtos-cartoes ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.lista {
+    color: rgb(49, 48, 48);
+}
+
+.produtos-cartoes ul li {
+    margin: 8px;
+}
+
+.produtos-cartoes ul button {
+    width: 110px;
+    margin: 8px;
+}
+
+/* .produtos-cartoes {
     display:inline-block;
     font-display:initial;
     text-align:justify;
     text-decoration-line:inherit;
     justify-content:flex-start;
-    background-color: brown;
+    background-color: rgb(240, 235, 235);
     width: auto;
     border-radius: 20px;
 }
@@ -14,7 +35,6 @@
 .produto-card {
     display:block;
     flex-direction:row-reverse;
-    /* align-items: center; */
     justify-content:space-around;
     padding: 4rem;
     border: 1px solid #eaeaea;
@@ -29,4 +49,4 @@
 
 .lista {
     color: chocolate;
-}
+} */

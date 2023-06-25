@@ -7,10 +7,8 @@ import { ProdutoContext } from "../contexts/ProdutoContext";
 const ProdutoEdit = () => {
 
     const params = useParams();
-    console.log(params);
 
     const {listaProdutos, produto, setProduto} = useContext(ProdutoContext);
-
 
     const buscarProduto = (id) => {
         fetch(`http://localhost:8080/produto/${params.id}`, {
@@ -26,12 +24,6 @@ const ProdutoEdit = () => {
     useEffect(() => {
         buscarProduto();
     }, []);
-    
-    const navigate = useNavigate();
-
-    const voltar = () => {
-        navigate(`/produto`);
-    }
 
     const salvaProduto = (id) => {
         fetch(`http://localhost:8080/produto/${params.id}`, {
@@ -44,8 +36,9 @@ const ProdutoEdit = () => {
         .then(() => listaProdutos());
     }
 
-    const editaProduto = () => {
-        salvaProduto();
+    const navigate = useNavigate();
+
+    const voltar = () => {
         navigate(`/produto`);
     }
 
@@ -74,7 +67,7 @@ const ProdutoEdit = () => {
                     onChange={(evento) => setProduto({ ...produto, quantidade: evento.target.value })}
                 />
 
-                <button type="button" onClick={editaProduto && voltar}>Confirmar Alteração de Produto</button>
+                <button type="button" onClick={salvaProduto}>Confirmar Alteração de Produto</button>
                 <button type="button" onClick={voltar}>Voltar à Lista de Produtos</button>
 
             </form>
@@ -85,5 +78,4 @@ const ProdutoEdit = () => {
 }
 
 export default ProdutoEdit;
-
 

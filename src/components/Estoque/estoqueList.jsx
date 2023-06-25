@@ -4,9 +4,11 @@ import { EstoqueContext } from "../contexts/estoqueContext";
 
 const EstoqueList = () => {
 
-    const context = useContext(EstoqueContext);
+    //const context = useContext(EstoqueContext);
+    const {estoques, deletarEstoque} = useContext(EstoqueContext);
     
     const navigate = useNavigate();
+
 
     const editaEstoque = (estoque) => {
         navigate(`/estoque/${estoque.id}/edit`);
@@ -17,14 +19,14 @@ const EstoqueList = () => {
         <div className="listaEstoque">
             <h3>Armazenamento de cadastro</h3>
             {
-                context.estoques.map((estoque) => (
+                estoques.map((estoque) => (
                     <div key={estoque.id}>
                         <ul>
                             <li>{estoque.nome}</li>
                             <li>{estoque.animal}</li>
                         </ul>
                         <button onClick={() => editaEstoque(estoque)}>Editar</button>
-                        <button >Deletar</button>
+                        <button onClick={() => deletarEstoque(estoque.id)}>Deletar</button>
                     </div>
                 ))
             }

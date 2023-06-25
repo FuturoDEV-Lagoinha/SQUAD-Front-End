@@ -1,14 +1,11 @@
-import { useContext, useEffect, useState } from "react";
 import { useProdutoContext } from "../contexts/ProdutoContext";
-import { EstoqueContext } from "../contexts/estoqueContext";
-import { useNavigate, useParams } from "react-router-dom";
+import "./home.css"
 
 
 const Home = () => {
 
-    const { produtosList, setProdutosList, estoques, setEstoques, deletaProduto } = useProdutoContext();
+    const { produtosList, editaProduto, deletaProduto } = useProdutoContext();
 
-    const {estoque, setEstoque, listaEstoques} = useContext(EstoqueContext);
 
     const filtraFilhotes = () => {
         return produtosList.filter(produto => {
@@ -34,106 +31,61 @@ const Home = () => {
         })
     }
 
-    const params = useParams();
-
-    const buscarEstoque = (id_estoque) => {
-        fetch(`http://localhost:8080/estoque/${params.id_estoque}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
-            .then((response) => { return response.json() })
-            .then((dadosDoEstoque) => { setEstoque(dadosDoEstoque) });
-    }
-    
-    useEffect(() => {
-        buscarEstoque();
-    }, []); 
-
-    const navigate = useNavigate();
-
-    const editaProduto = (produto) => {
-      navigate(`/produto/${produto.id}/edit`);
-    }
-
-/*     const [filter, setFilter] = useState([]);
-
-    const selecionaEstoque = (produto) => {
-        
-        
-    } */
-
-/*     const filtraPorEstoque = () => {
-        buscarEstoque().map(estoque => {
-            produtosList.map(produto => buscarEstoque(produto.estoque));
-        }
-
-    } */
-
-    const filhotes = filtraFilhotes().map(produto => (
-    <div>
-        <li id="filhote-lista" className="filhote-lista" key={produto.id}>ID: {produto.id}; Tipo de Produto: {produto.produto}; Animal: {produto.animal}; Categoria: {produto.categoria}</li>
-    <button onClick={() => editaProduto(produto)}>Editar Produto</button>
-    <button onClick={() => deletaProduto(produto)}>Apagar Produto</button>
-    </div>
-    ))
-
-    const adultos = filtraAdultos().map(produto => <li id="adulto-lista" className="adulto-lista" key={produto.id}>ID: {produto.id}; Tipo de Produto: {produto.produto}; Animal: {produto.animal}; Categoria: {produto.categoria}</li>)
-
-    const gatos = filtraGatos().map(produto => <li id="gato-lista" className="gato-lista" key={produto.id}>ID: {produto.id}; Tipo de Produto: {produto.produto}; 
-    Animal: {produto.animal}; Categoria: {produto.categoria}</li>)
-
-    const cachorros = filtraCachorros().map(produto => <li id="cachorro-lista" className="cachorro-lista" key={produto.id}>ID: {produto.id}; Tipo de Produto: {produto.produto}; Animal: {produto.animal}; Categoria: {produto.categoria}</li>);
-    
-
- 
-
     return (
 
         <div>
-            {/* <div className="lista-por-estoque">
-            <label>Estoque: </label>
-            <select 
-            value={estoque.id}
-            key={estoque.id}
-            placeholder="Selecione o Estoque"
-            onChange={(evento) => setEstoques({estoque: evento.target.value})}>
-                <option>...</option>
-                {filter.map((estoque) => {
-                    return <option value={estoque.id} key={estoque.id}>{estoque.nome}</option>
-                })}
-            </select>
-            {filtraPorEstoque().map(produto => <li id="produtos-do-estoque" className="produtos-do-estoque" key={produto.id}>ID: {produto.id}; Tipo de Produto: {produto.produto}; 
-                        Animal: {produto.animal}; Categoria: {produto.categoria}</li>)}
-            </div> */}
-            <div className="lista de produtos">
+            <div className="lista-de-estoques">
                 <h2>DASHBOARD: LISTA DE PRODUTOS</h2>
-
                 <p>FILHOTES</p>
+                <div className="lista-de-estoques">
+                    <ul>
+                        {filtraFilhotes().map(produto => (
+                            <div>
+                                <li id="filhote" className="filhote-lista" key={produto.id}><span>ID:</span> {produto.id}<span>Tipo de Produto:</span> {produto.produto}
+                                    <span>Animal: </span>{produto.animal} <span>Categoria:</span> {produto.categoria}</li>
+                                <button onClick={() => editaProduto(produto)}>Editar Produto</button>
+                                <button onClick={() => deletaProduto(produto.id)}>Apagar Produto</button>
+                            </div>
+                        ))}
+                    </ul>
 
-                <ul>
-                {filhotes}
-                </ul>
+                    <p>ADULTOS</p>
+                    <ul>
+                        {filtraAdultos().map(produto => (
+                            <div>
+                                <li id="adulto" className="adulto-lista" key={produto.id}><span>ID:</span> {produto.id}<span>Tipo de Produto:</span> {produto.produto}
+                                    <span>Animal:</span> {produto.animal} <span>Categoria:</span> {produto.categoria}</li>
+                                <button onClick={() => editaProduto(produto)}>Editar Produto</button>
+                                <button onClick={() => deletaProduto(produto.id)}>Apagar Produto</button>
+                            </div>
+                        ))}
+                    </ul>
 
-                <p>ADULTOS</p>
+                    <p>GATOS</p>
+                    <ul>
+                        {filtraGatos().map(produto => (
+                            <div>
+                                <li id="gato" className="gato-lista" key={produto.id}><span>ID:</span> {produto.id}<span>Tipo de Produto:</span> {produto.produto}
+                                    <span>Animal:</span> {produto.animal} <span>Categoria:</span> {produto.categoria}</li>
+                                <button onClick={() => editaProduto(produto)}>Editar Produto</button>
+                                <button onClick={() => deletaProduto(produto.id)}>Apagar Produto</button>
+                            </div>
+                        ))}
+                    </ul>
 
-                <ul>
-                {adultos}
-                </ul>
-
-                <p>GATOS</p>
-
-                <ul>
-                {gatos}
-                </ul>
-
-                <p>CÃES</p>
-
-                <ul>
-                {cachorros}
-                </ul>
-
+                    <p>CÃES</p>
+                    <ul>
+                        {filtraCachorros().map(produto => (
+                            <div>
+                                <li id="cachorro" className="cachorro-lista" key={produto.id}><span>ID:</span> {produto.id}<span>Tipo de Produto:</span> {produto.produto}
+                                    <span>Animal:</span> {produto.animal} <span>Categoria:</span> {produto.categoria}</li>
+                                <button onClick={() => editaProduto(produto)}>Editar Produto</button>
+                                <button onClick={() => deletaProduto(produto.id)}>Apagar Produto</button>
+                            </div>
+                        ))
+                        }
+                    </ul>
+                </div>
 
             </div>
         </div>
@@ -142,3 +94,75 @@ const Home = () => {
 }
 
 export default Home;
+
+
+
+/* const { deletaProduto, produtosList, listaProdutos } = useContext(ProdutoContext);
+
+const [produto, setProduto] = useState();
+
+useEffect = () => {
+    listaProdutos();
+}
+
+const filtraFilhotes = () => {
+    return produtosList.filter(produto => {
+        return produto.categoria === "filhote";
+    })
+}
+
+const filtraAdultos = () => {
+    return produtosList.filter(produto => {
+        return produto.categoria === "adulto";
+    })
+}
+
+const filtraGatos = () => {
+    return produtosList.filter(produto => {
+        return produto.animal === "gato";
+    })
+}
+
+const filtraCachorros = () => {
+    return produtosList.filter(produto => {
+        return produto.animal === "cachorro";
+    })
+}
+
+const filhotes = filtraFilhotes().map(produto => (
+    <div>
+        <li id="filhote" className="filhote-lista" key={produto.id}><span>ID:</span> {produto.id}<span>Tipo de Produto:</span> {produto.produto} <span>Animal: </span>{produto.animal} <span>Categoria:</span> {produto.categoria}<span>Estoque: </span>{produto.estoque}</li>
+        <button onClick={() => editaProduto(produto)}>Editar Produto</button>
+        <button onClick={() => deletaProduto(produto.id)}>Apagar Produto</button>
+    </div>
+))
+
+const adultos = filtraAdultos().map(produto => (
+    <div>
+        <li id="adulto" className="adulto-lista" key={produto.id}><span>ID:</span> {produto.id}<span>Tipo de Produto:</span> {produto.produto}<span>Animal:</span> {produto.animal} <span>Categoria:</span> {produto.categoria}<span>Estoque: </span>{produto.estoque}</li>
+        <button onClick={() => editaProduto(produto)}>Editar Produto</button>
+        <button onClick={() => deletaProduto(produto.id)}>Apagar Produto</button>
+    </div>
+))
+
+const gatos = filtraGatos().map(produto => (
+    <div>
+        <li id="gato" className="gato-lista" key={produto.id}><span>ID:</span> {produto.id}<span>Tipo de Produto:</span> {produto.produto}<span>Animal:</span> {produto.animal} <span>Categoria:</span> {produto.categoria}<span>Estoque: </span>{produto.estoque}</li>
+        <button onClick={() => editaProduto(produto)}>Editar Produto</button>
+        <button onClick={() => deletaProduto(produto.id)}>Apagar Produto</button>
+    </div>
+))
+
+const cachorros = filtraCachorros().map(produto => (
+    <div>
+        <li id="cachorro" className="cachorro-lista" key={produto.id}><span>ID:</span> {produto.id}<span>Tipo de Produto:</span> {produto.produto}<span>Animal:</span> {produto.animal} <span>Categoria:</span> {produto.categoria}<span>Estoque: </span>{produto.estoque}</li>
+        <button onClick={() => editaProduto(produto)}>Editar Produto</button>
+        <button onClick={() => deletaProduto(produto.id)}>Apagar Produto</button>
+    </div>
+));
+
+const navigate = useNavigate();
+
+const editaProduto = (produto) => {
+    navigate(`/produto/${produto.id}/edit`);
+} */

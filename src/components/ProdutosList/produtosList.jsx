@@ -13,8 +13,6 @@ const ProdutosList = () => {
       navigate(`/produto/${produto.id}/edit`);
     }
 
-
-
     return(
         <div>
             <h3 className="lista">Lista de Produtos</h3>
@@ -22,10 +20,11 @@ const ProdutosList = () => {
             {produtosList.map((produto) => (
                 <div className="produtos-cartoes">
                     <ul> 
-                        <li className="produto-card" key={produto.id}>{produto.produto}</li>
-                        <li>{produto.animal}</li>
-                        <li>{produto.categoria}</li>
-                        <li>{produto.quantidade}</li>
+                        <li className="produto-card" key={produto.id}><span>ID: </span>{produto.id}</li>
+                        <li><span>Quantidade: </span>{produto.quantidade}</li>
+                        <li><span>Tipo de Produto: </span>{produto.produto}</li>
+                        <li><span>Animal: </span>{produto.animal}</li>
+                        <li><span>Categoria: </span>{produto.categoria}</li>
                         <button 
                         onClick={() => editaProduto(produto)}>Editar Produto</button>
                         <button onClick={() => deletaProduto(produto.id)}>Apagar Produto</button>
