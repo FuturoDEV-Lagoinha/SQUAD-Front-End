@@ -1,71 +1,73 @@
-import React, { useContext } from "react";
-import { ProdutoContext } from "../contexts/ProdutoContext";
+import { useProdutoContext } from "../contexts/ProdutoContext";
 
 
 const Home = () => {
 
-    
-    const { produtosList, setProdutosList } = useContext(ProdutoContext);
+    const { produtosList } = useProdutoContext();
 
-    const filtraGatos = () => {
-        const gatos = produtosList.filter(produto => {
-            return produto.animal == "gato";
-        })
-        setProdutosList(gatos);
-    }
-
-    const filtraCachorros = () => {
-        const cachorros = produtosList.filter(produto => {
-            return produto.animal == "cachorro";
-        })
-        setProdutosList(cachorros);
-    }
 
     const filtraFilhotes = () => {
-        const filhotes = produtosList.filter(produto => {
-            return produto.categoria == "filhote";
+        return produtosList.filter(produto => {
+            return produto.categoria === "filhote";
         })
-        setProdutosList(filhotes);
     }
 
     const filtraAdultos = () => {
-        const adultos = produtosList.filter(produto => {
-            return produto.categoria == "adulto";
+        return produtosList.filter(produto => {
+            return produto.categoria === "adulto";
         })
-        setProdutosList(adultos);
     }
 
-    return(
+    const filtraGatos = () => {
+        return produtosList.filter(produto => {
+            return produto.animal === "gato";
+        })
+    }
+
+    const filtraCachorros = () => {
+        return produtosList.filter(produto => {
+            return produto.animal === "cachorro";
+        })
+    }
+
+    return (
 
         <div>
             <div className="lista de estoques">
-                <h2>Lista de Estoques</h2>
-                <p>"lista de estoques aqui" - CONTEXT</p>
-                <p1>"mostrar produtos nos estoques também"</p1>
+                <h2>DASHBOARD: LISTA DE PRODUTOS</h2>
+
                 <p>FILHOTES</p>
+
                 <ul>
-                    {/* <li>{filtraFilhotes}</li> */}
-                    <li>{produtosList.map(produto => {
-                        return <li>{produto.id}{produto.produto}{produto.animal}{produto.categoria}</li>
-                        
-                    })}</li>
+                {filtraFilhotes().map(produto => <li id="filhote" className="filhote-lista" key={produto.id}>ID: {produto.id}; Tipo de Produto: {produto.produto}; 
+                        Animal: {produto.animal}; Categoria: {produto.categoria}</li>)}
                 </ul>
+
                 <p>ADULTOS</p>
+
                 <ul>
-                    {/* <li>{filtraAdultos}</li> */}
+                {filtraAdultos().map(produto => <li id="adulto" className="adulto-lista" key={produto.id}>ID: {produto.id}; Tipo de Produto: {produto.produto}; 
+                        Animal: {produto.animal}; Categoria: {produto.categoria}</li>)}
                 </ul>
+
                 <p>GATOS</p>
+
                 <ul>
-                    {/* <li>{filtraGatos}</li> */}
+                {filtraGatos().map(produto => <li id="gato" className="gato-lista" key={produto.id}>ID: {produto.id}; Tipo de Produto: {produto.produto}; 
+                        Animal: {produto.animal}; Categoria: {produto.categoria}</li>)}
                 </ul>
+
                 <p>CÃES</p>
+
                 <ul>
-                    {/* <li>{filtraCachorros}</li> */}
+                {filtraCachorros().map(produto => <li id="cachorro" className="cachorro-lista" key={produto.id}>ID: {produto.id}; Tipo de Produto: {produto.produto}; 
+                        Animal: {produto.animal}; Categoria: {produto.categoria}</li>)}
                 </ul>
+
 
             </div>
         </div>
-       
+
     )
 }
 

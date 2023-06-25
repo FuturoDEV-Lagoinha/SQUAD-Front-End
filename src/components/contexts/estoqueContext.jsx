@@ -10,11 +10,11 @@ const EstoqueProvider = ({ children }) => {
         animal: ""
     });
     
-    const params = useParams();
+    //const params = useParams();
 
     const [estoques, setEstoques] = useState([]);
     
-    const ListarEstoques = () => {
+    const listarEstoques = () => {
 
         fetch('http://localhost:8080/estoque', {
             method: "GET"
@@ -24,7 +24,7 @@ const EstoqueProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        ListarEstoques();
+        listarEstoques();
     }, []);
 
     
@@ -38,17 +38,16 @@ const EstoqueProvider = ({ children }) => {
             },
             body: JSON.stringify(estoque),
         }).then(() =>{
-            ListarEstoques();
+            listarEstoques();
         })
-        /* console.log(params.id);
-        console.log(estoque); */
+        
     };
-    
+
     return (
         <EstoqueContext.Provider value={{
             estoque,
             setEstoque,
-            ListarEstoques,
+            listarEstoques,
             estoques,
             setEstoques,
             adicionarEstoque
