@@ -1,8 +1,64 @@
-.cadastro-produto{
+
+* {
+    margin: o;
+    box-sizing: border-box;
+    padding: 0;
+    
+}
+
+body {
+    background-color: rgb(241, 235, 235);
+}
+
+.cadastro-produto h3 {
+    margin: 30px 40px;
+}
+
+.cadastro-produto form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    margin-left: 270px;
+}
+
+.cadastro-produto form select {
+    width: 150px;
+}
+
+.cadastro-produto form label {
+    width: 150px;
+}
+
+.cadastro-produto form button {
+    margin-top: 30px;
+    width: 200px;
+}
+
+.cadastro-produto form input {
+    width: 150px;
+}
+
+/* .produto-atributos {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+} */
+/* .cadastro-produto{
     display:contents;
     height: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
+
+/* .formulario-produto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
 
 

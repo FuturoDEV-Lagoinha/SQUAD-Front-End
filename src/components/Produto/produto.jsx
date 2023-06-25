@@ -24,7 +24,6 @@ const Produto = () => {
         listaEstoques();
     }, []); 
     
-    console.log(estoque);
     return(
         <div className="cadastro-produto">
 
@@ -33,7 +32,6 @@ const Produto = () => {
             <label>Estoque: </label>
             <select 
             value={produto.estoque}
-            placeholder="Selecione o Estoque"
             onChange={(evento) => setProduto({...produto, estoque: evento.target.value})}>
                 <option>...</option>
                 {estoque.map((armazem) => {
@@ -80,7 +78,6 @@ const Produto = () => {
                 <option value={"filhote"}>Filhote</option>
                 <option value={"adulto"}>Adulto</option>
             </select>
-            
             
             <button type="button" onClick={adicionaProduto}>Confirmar Cadastro de Produto</button>
 
