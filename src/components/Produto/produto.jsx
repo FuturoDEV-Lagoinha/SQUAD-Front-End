@@ -24,7 +24,6 @@ const Produto = () => {
         listaEstoques();
     }, []); 
     
-    console.log(estoque);
     return(
         <div className="cadastro-produto">
 
@@ -50,26 +49,6 @@ const Produto = () => {
                 <option value={"cachorro"}>Cachorro</option>
                 <option value={"gato"}>Gato</option>
             </select>
-            
-            <label>Tipo do Produto: </label>
-            <select
-            value={produto.produto} 
-            onChange={(evento) => setProduto({...produto, produto: evento.target.value})}
-            >
-                <option>...</option>
-                <option value={"ração"}>Ração</option>
-                <option value={"antipulgas"}>Antipulgas</option>
-                <option value={"antiparasitária"}>Antiparasitária</option>
-            </select>
-
-            <label>Quantidade: </label>
-            <input
-                type="number"
-                value={produto.quantidade}
-                placeholder="Quantidade do Produto"
-                onChange={(evento) => setProduto({...produto, quantidade: evento.target.value})}
-            />
-
 
             <label>Categoria: </label>
             <select
@@ -81,6 +60,24 @@ const Produto = () => {
                 <option value={"adulto"}>Adulto</option>
             </select>
             
+            <label>Quantidade: </label>
+            <input
+                type="number"
+                value={produto.quantidade}
+                placeholder="Quantidade do Produto"
+                onChange={(evento) => setProduto({...produto, quantidade: evento.target.value})}
+            />
+            
+            <label>Tipo do Produto: </label>
+            <select
+            value={produto.produto} 
+            onChange={(evento) => setProduto({...produto, produto: evento.target.value})}
+            >
+                <option>...</option>
+                <option value={"ração"}>Ração</option>
+                <option value={"antipulgas"}>Antipulgas</option>
+                <option value={"antiparasitária"}>Antiparasitária</option>
+            </select>
             
             <button type="button" onClick={adicionaProduto}>Confirmar Cadastro de Produto</button>
 
@@ -88,7 +85,6 @@ const Produto = () => {
             <div className="lista-de-produtos">
                 <ProdutosList produto={produto} setProduto={setProduto} />
             </div>
-
 
         </div>
     )

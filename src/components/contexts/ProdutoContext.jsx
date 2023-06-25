@@ -1,5 +1,6 @@
 import React from "react";
 import { createContext, useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProdutoContext = createContext();
 
@@ -45,6 +46,8 @@ const ProdutoProvider = ({ children }) => {
       })
 
   }
+
+
 
   const deletaProduto = (idDoProduto) => {
     fetch(`http://localhost:8080/produto/${idDoProduto}`, {

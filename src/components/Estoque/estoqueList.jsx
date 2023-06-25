@@ -23,7 +23,7 @@ const EstoqueList = () => {
                             <li>{estoque.nome}</li>
                             <li>{estoque.animal}</li>
                         </ul>
-                        <button onClick={editaEstoque}>Editar</button>
+                        <button onClick={() => editaEstoque(estoque)}>Editar</button>
                         <button >Deletar</button>
                     </div>
                 ))

@@ -26,6 +26,12 @@ const ProdutoEdit = () => {
     useEffect(() => {
         buscarProduto();
     }, []);
+    
+    const navigate = useNavigate();
+
+    const voltar = () => {
+        navigate(`/produto`);
+    }
 
     const salvaProduto = (id) => {
         fetch(`http://localhost:8080/produto/${params.id}`, {
@@ -38,9 +44,8 @@ const ProdutoEdit = () => {
         .then(() => listaProdutos());
     }
 
-    const navigate = useNavigate();
-
-    const voltar = () => {
+    const editaProduto = () => {
+        salvaProduto();
         navigate(`/produto`);
     }
 
@@ -69,7 +74,7 @@ const ProdutoEdit = () => {
                     onChange={(evento) => setProduto({ ...produto, quantidade: evento.target.value })}
                 />
 
-                <button type="button" onClick={salvaProduto}>Confirmar Alteração de Produto</button>
+                <button type="button" onClick={editaProduto && voltar}>Confirmar Alteração de Produto</button>
                 <button type="button" onClick={voltar}>Voltar à Lista de Produtos</button>
 
             </form>

@@ -1,30 +1,19 @@
-import React, {  useContext, useEffect, useState } from "react";
+import React, {  useContext } from "react";
 import "../ProdutosList/produtosList.css";
 import { useNavigate } from "react-router-dom";
 import { ProdutoContext } from "../contexts/ProdutoContext";
 
 const ProdutosList = () => {
 
-
     const {produtosList, deletaProduto} = useContext(ProdutoContext);
-
-
-/*      const listaProdutos = () => {
-        fetch(`http://localhost:8080/produto`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
-        .then((response) => {return response.json()})
-        .then((dadosDoProduto) => {setProdutos(dadosDoProduto)});
-    } */
 
     const navigate = useNavigate();
 
     const editaProduto = (produto) => {
-        navigate(`/produto/${produto.id}/edit`);
-      }
+      navigate(`/produto/${produto.id}/edit`);
+    }
+
+
 
     return(
         <div>

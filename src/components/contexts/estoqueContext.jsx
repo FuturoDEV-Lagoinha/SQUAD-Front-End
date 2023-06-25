@@ -40,8 +40,6 @@ const EstoqueProvider = ({ children }) => {
         }).then(() =>{
             listarEstoques();
         })
-        /* console.log(params.id);
-        console.log(estoque); */
     };
     
     return (
