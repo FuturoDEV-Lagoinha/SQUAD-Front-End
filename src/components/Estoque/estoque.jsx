@@ -2,42 +2,47 @@
 import React, { useContext, useState } from "react";
 import EstoqueList from "./estoqueList";
 import { EstoqueContext } from "../contexts/estoqueContext";
+import "./style.css";
+
 
 const Estoque = ({children}) => {
    
-    //estado que recebe os valores do estoque
-    const [estoques, setEstoques] = useState([]);
+    
+        //estado que recebe os valores do estoque
+        const [estoques, setEstoques] = useState([]);
 
-    const { adicionarEstoque, estoque, setEstoque } = useContext(EstoqueContext);
- 
-    return(
-        <div>
-            <h3>Cadastro de Armazenamento</h3>
-            <label>Nome:</label>
-            <input
-                type="text"
-                value={estoque.nome}
-                placeholder="Nome estoque"
-                onChange={(evento) => setEstoque({...estoque,  nome: evento.target.value})}
-            />
+        const { adicionarEstoque, estoque, setEstoque } = useContext(EstoqueContext);
+    
+        return(
+            <div className="container">
+                <h3>Cadastro de Armazenamento</h3>
+                <div className="cadastramento">
+                <label>Nome:</label>
+                <input
+                    type="text"
+                    value={estoque.nome}
+                    placeholder="Nome estoque"
+                    onChange={(evento) => setEstoque({...estoque,  nome: evento.target.value})}
+                />
+                
+                
+                <label>Estoque para:</label>
+                <select
+                    type="text"
+                    value={estoque.animal}
+                    onChange={(evento) => setEstoque({...estoque, animal: evento.target.value})}
+                >
+                    <option value="">...</option>
+                    <option value={"gato"}>Gato</option>
+                    <option value={"cachorro"}>Cachorro</option>
+                </select>                
+                
+                <button onClick={adicionarEstoque} >Cadastrar</button>
+                </div>
+                <EstoqueList estoques={estoques} />
             
-            
-            <label>Estoque para:</label>
-            <select
-                type="text"
-                value={estoque.animal}
-                onChange={(evento) => setEstoque({...estoque, animal: evento.target.value})}
-            >
-                <option value="">...</option>
-                <option value={"gato"}>Gato</option>
-                <option value={"cachorro"}>Cachorro</option>
-            </select>                
-            
-            <button onClick={adicionarEstoque} >Cadastrar</button>
-            
-            <EstoqueList estoques={estoques} />
-           
-        </div>
-    )
+            </div>
+        )
+    
 }
 export default Estoque;

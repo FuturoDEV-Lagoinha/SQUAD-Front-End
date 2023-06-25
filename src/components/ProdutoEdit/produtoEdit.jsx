@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import "./produtoEdit.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { ProdutoContext } from "../contexts/ProdutoContext";
@@ -11,13 +11,6 @@ const ProdutoEdit = () => {
 
     const {listaProdutos, produto, setProduto} = useContext(ProdutoContext);
 
-    /* const [produto, setProduto] = useState({
-        estoque: "",
-        produto: "",
-        animal: "",
-        quantidade: "",
-        categoria: "",
-    }); */
 
     const buscarProduto = (id) => {
         fetch(`http://localhost:8080/produto/${params.id}`, {
