@@ -39,7 +39,7 @@
   border-radius: 12px;
 }
 
-span {
+.formularioCadastro form span {
   color: rgb(73, 71, 71);
   margin-bottom: 23px;
   font-size: 15px;

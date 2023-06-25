@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { EstoqueContext } from "../contexts/estoqueContext";
+import "./estoque.css";
 
 const EstoqueEdit = () => {
     
@@ -47,7 +48,7 @@ const EstoqueEdit = () => {
     }
 
     return(
-        <div>
+        <div className="container">
             <h3>Editar de Armazenamento</h3>
             <label htmlFor="">Nome:</label>
             <input
@@ -69,8 +70,8 @@ const EstoqueEdit = () => {
                 <option value={"cachorro"}>Cachorro</option>
             </select>                
             
-            <button onClick={ atualizarEstoque }>Editar</button>    
-            <button onClick={voltarPagina}>Voltar Página</button>
+            <button className="botao-edit" onClick={ atualizarEstoque }>Editar</button>    
+            <button className="botao-edit" onClick={voltarPagina}>Voltar Página</button>
            
         </div>
     )

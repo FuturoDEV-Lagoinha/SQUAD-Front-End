@@ -39,8 +39,8 @@ const Home = () => {
                 <p>FILHOTES</p>
                 <div  className="lista-de-estoques">
                 <ul>
-                {filtraFilhotes().map(produto => (<li id="filhote" className="filhote-lista" key={produto.id}><span>ID:</span> {produto.id}<span>Tipo de Produto:</span> {produto.produto} 
-                       <span>Animal: </span>{produto.animal} <span>Categoria:</span> {produto.categoria}</li>))}
+                {filtraFilhotes().map(produto => <li id="filhote" className="filhote-lista" key={produto.id}><span>ID:</span> {produto.id}<span>Tipo de Produto:</span> {produto.produto} 
+                       <span>Animal: </span>{produto.animal} <span>Categoria:</span> {produto.categoria}</li>)}
                 </ul>
 
                 <p>ADULTOS</p>

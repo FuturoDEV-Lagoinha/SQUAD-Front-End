@@ -1,5 +1,5 @@
 *{
-    margin: o;
+    margin: 0;
     box-sizing: border-box;
     padding: 0;
 }
@@ -14,28 +14,16 @@
     font-weight: bold;
 }
 
-/* .produtos-filhotes {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-} */
+.lista-de-estoques ul {
+    margin: 8px;
+}
 
-/* .filhote-lista {
-    margin: 5px;
-    
-} */
 span {
     margin: 0 0 0 18px;
     color:  rgb(91, 99, 153);
     font-weight: bold;
 }
-  
-/* .lista-de-estoques p {
-    color: rgb(73, 71, 71);
-    font-weight: bold;
-    
-    
-} */
+
 
 
 
