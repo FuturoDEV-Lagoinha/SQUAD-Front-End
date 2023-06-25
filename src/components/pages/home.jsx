@@ -1,10 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { useProdutoContext } from "../contexts/ProdutoContext";
 import "./home.css"
 
 
 const Home = () => {
 
-    const { produtosList, editaProduto, deletaProduto } = useProdutoContext();
+    const { produtosList, deletaProduto } = useProdutoContext();
 
 
     const filtraFilhotes = () => {
@@ -29,6 +30,12 @@ const Home = () => {
         return produtosList.filter(produto => {
             return produto.animal === "cachorro";
         })
+    }
+
+    const navigate = useNavigate();
+
+    const editaProduto = (produto) => {
+      navigate(`/produto/${produto.id}/edit`);
     }
 
     return (
