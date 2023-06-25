@@ -3,14 +3,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import { EstoqueContext } from "../contexts/estoqueContext";
 
 const EstoqueEdit = () => {
+    
+    const params = useParams();
+    console.log(params);
 
     //trazando o contexto para essa pagina
-    const {estoque, setEstoque, ListarEstoques } = useContext(EstoqueContext);
+    const {estoque, setEstoque, listarEstoques } = useContext(EstoqueContext);
 
-    const navigate = useNavigate();
-
-    const params = useParams();
-    
     const buscarEstoque = (id) => {
 
         fetch(`http://localhost:8080/estoque/${params.id}`, {
@@ -37,12 +36,14 @@ const EstoqueEdit = () => {
             },
             body: JSON.stringify(estoque),
         }).then(() => {
-            ListarEstoques();
+            listarEstoques();
             console.log(estoque);
         });
     };
 
-    const voltarPagina = (estoque) => {
+    const navigate = useNavigate();
+    
+    const voltarPagina = () => {
         navigate(`/estoque`);
     }
 
@@ -54,7 +55,7 @@ const EstoqueEdit = () => {
                 type="text"
                 value={estoque.nome}
                 placeholder="Nome estoque"
-                onChange={(evento) => setEstoque({...estoque,  nome: evento.target.value})}
+                onChange={(evento) => setEstoque({...estoque, nome: evento.target.value})}
             />
             
             
@@ -69,7 +70,8 @@ const EstoqueEdit = () => {
                 <option value={"cachorro"}>Cachorro</option>
             </select>                
             
-            <button onClick={ atualizarEstoque && voltarPagina }>Editar</button>    
+            <button onClick={ atualizarEstoque }>Editar</button>    
+            <button onClick={voltarPagina}>Voltar Página</button>
            
         </div>
     )

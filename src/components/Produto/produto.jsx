@@ -33,7 +33,9 @@ const Produto = () => {
             <label>Estoque: </label>
             <select 
             value={produto.estoque}
+            placeholder="Selecione o Estoque"
             onChange={(evento) => setProduto({...produto, estoque: evento.target.value})}>
+                <option>...</option>
                 {estoque.map((armazem) => {
                     return <option value={armazem.id} key={armazem.id}>{armazem.nome}</option>
                 })}
