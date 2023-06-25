@@ -14,7 +14,7 @@ const EstoqueList = () => {
 
     return (
 
-        <div>
+        <div className="listaEstoque">
             <h3>Armazenamento de cadastro</h3>
             {
                 context.estoques.map((estoque) => (
