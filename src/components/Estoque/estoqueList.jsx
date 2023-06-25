@@ -8,6 +8,7 @@ const EstoqueList = () => {
     
     const navigate = useNavigate();
 
+
     const editaEstoque = (estoque) => {
         navigate(`/estoque/${estoque.id}/edit`);
     }
@@ -23,7 +24,7 @@ const EstoqueList = () => {
                             <li>{estoque.nome}</li>
                             <li>{estoque.animal}</li>
                         </ul>
-                        <button onClick={editaEstoque}>Editar</button>
+                        <button onClick={() => editaEstoque(estoque)}>Editar</button>
                         <button >Deletar</button>
                     </div>
                 ))

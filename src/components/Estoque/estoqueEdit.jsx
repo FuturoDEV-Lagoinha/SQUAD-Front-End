@@ -10,9 +10,9 @@ const EstoqueEdit = () => {
     //trazando o contexto para essa pagina
     const {estoque, setEstoque, listarEstoques } = useContext(EstoqueContext);
 
-    const buscarEstoque = (id) => {
+    const buscarEstoque = (id_estoque) => {
 
-        fetch(`http://localhost:8080/estoque/${params.id}`, {
+        fetch(`http://localhost:8080/estoque/${params.id_estoque}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -27,9 +27,9 @@ const EstoqueEdit = () => {
     }, []);
 
     //
-    const atualizarEstoque = (id) => {
+    const atualizarEstoque = (id_estoque) => {
 
-        fetch(`http://localhost:8080/estoque/${params.id}`, {
+        fetch(`http://localhost:8080/estoque/${params.id_estoque}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
