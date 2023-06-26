@@ -9,9 +9,11 @@ function App() {
 
       <EstoqueProvider>
         <ProdutoProvider> 
+          
 
             <AppRoutes />
          
+          
         </ProdutoProvider>
       </EstoqueProvider>
 

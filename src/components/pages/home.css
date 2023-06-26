@@ -18,6 +18,11 @@
     margin: 8px;
 }
 
+.lista-de-estoques button {
+    width: 175px;
+    margin: 5px;
+}
+
 span {
     margin: 0 0 0 18px;
     color:  rgb(91, 99, 153);

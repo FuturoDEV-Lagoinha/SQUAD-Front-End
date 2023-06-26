@@ -1,4 +1,3 @@
-
 import React, { useContext, useState } from "react";
 import EstoqueList from "./estoqueList";
 import { EstoqueContext } from "../contexts/estoqueContext";
