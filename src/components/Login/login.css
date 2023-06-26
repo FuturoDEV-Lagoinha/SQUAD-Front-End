@@ -1,6 +1,6 @@
 
 * {
-  margin: o;
+  margin: 0;
   box-sizing: border-box;
   padding: 0;
   }
@@ -40,7 +40,7 @@
   border-radius: 12px;
 }
 
-span {
+.formularioLogin form span {
   color: rgb(73, 71, 71);
   margin-bottom: 23px;
   font-size: 15px;

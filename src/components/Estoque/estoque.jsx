@@ -1,8 +1,7 @@
-
 import React, { useContext, useState } from "react";
 import EstoqueList from "./estoqueList";
 import { EstoqueContext } from "../contexts/estoqueContext";
-import "./style.css";
+import "./estoque.css";
 
 
 const Estoque = ({children}) => {

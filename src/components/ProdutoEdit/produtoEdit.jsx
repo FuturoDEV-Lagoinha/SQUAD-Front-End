@@ -7,10 +7,8 @@ import { ProdutoContext } from "../contexts/ProdutoContext";
 const ProdutoEdit = () => {
 
     const params = useParams();
-    console.log(params);
 
     const {listaProdutos, produto, setProduto} = useContext(ProdutoContext);
-
 
     const buscarProduto = (id) => {
         fetch(`http://localhost:8080/produto/${params.id}`, {
@@ -80,5 +78,4 @@ const ProdutoEdit = () => {
 }
 
 export default ProdutoEdit;
-
 

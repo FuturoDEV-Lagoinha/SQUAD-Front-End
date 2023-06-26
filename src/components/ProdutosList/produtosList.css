@@ -3,10 +3,16 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    list-style: none;
+    margin-left: 200px;
+}
+
+.lista {
+    color: rgb(49, 48, 48);
 }
 
 .produtos-cartoes ul li {
-    margin: 8px;
+    margin: 5px;
 }
 
 .produtos-cartoes ul button {
@@ -14,34 +20,4 @@
     margin: 8px;
 }
 
-/* .produtos-cartoes {
-    display:inline-block;
-    font-display:initial;
-    text-align:justify;
-    text-decoration-line:inherit;
-    justify-content:flex-start;
-    background-color: rgb(240, 235, 235);
-    width: auto;
-    border-radius: 20px;
-}
 
-
-
-.produto-card {
-    display:block;
-    flex-direction:row-reverse;
-    justify-content:space-around;
-    padding: 4rem;
-    border: 1px solid #eaeaea;
-    border-radius: 22px;
-    transition: color 0.15s ease, border-color 0.15 ease;
-    width: 15vw;
-    font-size: 27px;
-    line-height: 18px;
-    color: rgb(240, 235, 235);
-}
-
-
-.lista {
-    color: chocolate;
-} */
