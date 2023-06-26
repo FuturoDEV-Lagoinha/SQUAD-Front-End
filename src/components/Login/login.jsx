@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import login from '../../assets/login.jpg';
 import logo from '../../assets/logo.jpg';
 import { FaEnvelope, FaLock} from "react-icons/fa";
-import './style.css';
+import './login.css';
 import { Link, useNavigate } from "react-router-dom";
 
 

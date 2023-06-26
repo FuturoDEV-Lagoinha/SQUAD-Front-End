@@ -66,3 +66,10 @@ button:hover {
     height: 30px;
     margin: 10px;
 }
+
+.botao-edit {
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    margin: 5px;
+} 

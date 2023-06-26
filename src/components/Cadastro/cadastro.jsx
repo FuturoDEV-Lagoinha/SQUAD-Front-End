@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from '../../assets/logo.jpg';
 import cadastro from '../../assets/cadastro.jpg';
 import {FaEnvelope, FaLock, FaUserCircle} from 'react-icons/fa';
-import './style.css';
+import './cadastro.css';
 import { useNavigate } from "react-router-dom";
 
 const Cadastro = () => {

@@ -14,7 +14,7 @@ const ProdutosList = () => {
     }
 
     return(
-        <div>
+        <div className="lista-de-produtos">
             <h3 className="lista">Lista de Produtos</h3>
 
             {produtosList.map((produto) => (
@@ -39,4 +39,3 @@ const ProdutosList = () => {
 
 export default ProdutosList;
 
-// onClick={() => setShowEditProduto(true) && {/* <EditProduto /> */}}

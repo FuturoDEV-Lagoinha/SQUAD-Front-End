@@ -36,7 +36,6 @@ Este projeto é um sistema de controle de estoque para ONGs. Com ele é possíve
 ### Tela de Login
 ![tela-login](./docs/imagens/tela-login.png)
 
-![Alt text](image.png) aqui printar demais telas depois de prontas
 
 ## Como rodar este projeto ?
 ```bash
@@ -66,7 +65,6 @@ $ npm start
 
 ✔️ HTML
 
-![Alt text](image.png)não sei se faltou alguma ou se devemos ignorar html e css 
 
 #
 

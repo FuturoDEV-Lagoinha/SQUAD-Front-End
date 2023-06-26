@@ -4,14 +4,23 @@ import { EstoqueContext } from "../contexts/estoqueContext";
 
 const EstoqueList = () => {
 
-    //const context = useContext(EstoqueContext);
-    const {estoques, deletarEstoque} = useContext(EstoqueContext);
+    const {estoques, deletarEstoque } = useContext(EstoqueContext);
     
     const navigate = useNavigate();
 
 
     const editaEstoque = (estoque) => {
         navigate(`/estoque/${estoque.id}/edit`);
+    }
+
+    const filtrarSituacao = (estoque) =>{
+        estoques.filter(estoque =>{
+            return estoque.situacao === true ? (<>
+                <p>Ativado!</p>
+            </>): (<>
+            <p>Desativado!</p>
+        </>) 
+        })
     }
 
     return (
@@ -22,8 +31,9 @@ const EstoqueList = () => {
                 estoques.map((estoque) => (
                     <div key={estoque.id}>
                         <ul>
-                            <li>{estoque.nome}</li>
-                            <li>{estoque.animal}</li>
+                            <li>Nome: {estoque.nome} </li>
+                            <li>Animal: {estoque.animal} </li>
+                            <li>Situação: {() => filtrarSituacao(estoque)} </li>
                         </ul>
                         <button onClick={() => editaEstoque(estoque)}>Editar</button>
                         <button onClick={() => deletarEstoque(estoque.id)}>Deletar</button>
