@@ -35,7 +35,19 @@ const Estoque = ({children}) => {
                     <option value="">...</option>
                     <option value={"gato"}>Gato</option>
                     <option value={"cachorro"}>Cachorro</option>
+                </select> 
+
+                <label>Situação:</label>
+                <select
+                    type="text"
+                    value={estoque.situacao}
+                    onChange={(evento) => setEstoque({...estoque, situacao: evento.target.value})}
+                >
+                    <option value="">...</option>
+                    <option value={true}>Ativado</option>
+                    <option value={false}>Desativado</option>
                 </select>                
+                               
                 
                 <button onClick={adicionarEstoque} >Cadastrar</button>
                 </div>
