@@ -20,7 +20,7 @@ Este projeto é um sistema de controle de estoque para ONGs. Com ele é possíve
     * cachorro
 
 ✔️ Produtos
-* Nome do Produto
+* Estoque do Produto
 * Quantidade
 * Tipo de Produto
     * gato
@@ -77,3 +77,17 @@ $ npm start
 <a href= "https://www.linkedin.com/in/renato-aires-5128b7189/" target= "_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target= "_blank"/> Renato
 #
 <a href= "https://www.linkedin.com/in/vini-andrade-35ab6421/" target= "_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target= "_blank"/> Vinícius
+
+
+## Considerações sobre o projeto:
+
+Algumas funcionalidades não foram completamente implementadas.
+A exigência de não poder apagar um estoque, quando há produtos nele, está sendo atendida, mas não conseguimos a tempo enviar esta informação ao front-end.
+
+Algumas operações têm se mostrado pesadas, e não sabemos se é por causa de nossos equipamentos, ou se há formas de deixar as funções mais leves.
+
+Não conseguimos, a tempo, retirar a NavBar da página de Login (o que seria recomendável, embora o exercício não tenha exigido).
+
+Outras funções, como a exibição da situação do estoque, não conseguimos terminar de implementar. Tentamos muitas lógicas, mas não chegamos a uma conclusão final. Estamos enviando com o código interminado, para que vocês possam nos instruir, na hora da correção, caso seja possível.
+
+Agradecemos por este curso e por todo o aprendizado compartilhado pelos professores!

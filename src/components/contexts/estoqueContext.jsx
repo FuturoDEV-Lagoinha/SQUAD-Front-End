@@ -58,7 +58,7 @@ const EstoqueProvider = ({ children }) => {
             estoques,
             setEstoques,
             adicionarEstoque,
-            deletarEstoque
+            deletarEstoque,
             }}>
             {children}
         </EstoqueContext.Provider>
