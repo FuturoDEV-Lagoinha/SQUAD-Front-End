@@ -13,16 +13,7 @@ const EstoqueList = () => {
         navigate(`/estoque/${estoque.id}/edit`);
     }
 
-    const filtrarSituacao = (estoque) =>{
-        estoques.filter(estoque =>{
-            return estoque.situacao === true ? (<>
-                <p>Ativado!</p>
-            </>): (<>
-            <p>Desativado!</p>
-        </>) 
-        })
-    }
-
+    
     return (
 
         <div className="listaEstoque">
@@ -33,7 +24,7 @@ const EstoqueList = () => {
                         <ul>
                             <li>Nome: {estoque.nome} </li>
                             <li>Animal: {estoque.animal} </li>
-                            <li>Situação: {() => filtrarSituacao(estoque)} </li>
+                            <li>Situação: {estoque.situacao ? "Ativo" : "Inativo"} </li>
                         </ul>
                         <button onClick={() => editaEstoque(estoque)}>Editar</button>
                         <button onClick={() => deletarEstoque(estoque.id)}>Deletar</button>
